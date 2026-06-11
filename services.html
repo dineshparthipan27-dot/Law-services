@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title> Services</title>
     <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="shared.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
@@ -13,26 +14,31 @@
 
 <body>
 
-    <!-- Navigation -->
     <nav class="navbar">
+
         <div class="logo-container">
             <img src="./asset/logo (2).webp" alt="Company Logo" class="logo-img">
         </div>
 
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html"class="active">Services</a>
-            <a href="blog.html">Blog</a>
-            <a href="contact.html">Contact</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="404.html" class="consult-btn">Book Consultation</a>
         </div>
 
-        <a href="index.html" class="btn">
-            <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
-        </a>
+        <div class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
     </nav>
 
-    <!-- 1. Hero Section -->
     <header class="hero scroll-anim">
         <h1>Comprehensive <span>Legal Services</span><br>Tailored for <span>You</span></h1>
         <p>From complex corporate litigations to sensitive family matters, LegalConnect offers expert counsel and fierce
@@ -264,7 +270,7 @@
                     <li><i class="fa-solid fa-check"></i> Legal opinion provided</li>
                 </ul>
                 <a href="404.html">
-                <button class="btn btn-outline" style="width: 100%; justify-content: center;">Book Session</button>
+                    <button class="btn btn-outline" style="width: 100%; justify-content: center;">Book Session</button>
                 </a>
             </div>
             <div class="pricing-card featured">
@@ -279,7 +285,7 @@
                     <li><i class="fa-solid fa-check"></i> Client portal access</li>
                 </ul>
                 <a href="404.html">
-                <button class="btn" style="width: 100%; justify-content: center;">Request Quote</button>
+                    <button class="btn" style="width: 100%; justify-content: center;">Request Quote</button>
                 </a>
             </div>
             <div class="pricing-card">
@@ -292,7 +298,7 @@
                     <li><i class="fa-solid fa-check"></i> Priority legal support</li>
                 </ul>
                 <a href="404.html">
-                <button class="btn btn-outline" style="width: 100%; justify-content: center;">Contact Firm</button>
+                    <button class="btn btn-outline" style="width: 100%; justify-content: center;">Contact Firm</button>
                 </a>
             </div>
         </div>
@@ -357,6 +363,8 @@
     <footer>
         <p>&copy; 2026 LegalConnect Law Firm. All rights reserved. Justice Delivered.</p>
     </footer>
+
+    <script src="main.js"></script>
 
     <!-- Scroll Animation Script -->
     <script>

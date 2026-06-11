@@ -81,18 +81,9 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo-da {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary-color);
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .logo-da i {
-            font-size: 28px;
+        .logo-img{
+            width: 150px;
+            height: auto;
         }
 
         .close-btn {
@@ -641,17 +632,7 @@
         }
 
 
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo img {
-            width: 180px;
-        }
+    
 
         /* Media Queries */
         @media (max-width: 992px) {
@@ -1188,6 +1169,8 @@
         document.querySelector(".user-email").textContent = email;
         const welcomeEl = document.querySelector(".welcome-name");
         if (welcomeEl) { welcomeEl.textContent = `| Hi, ${formattedName} 👋`; }
+
+        
 
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('sidebarOverlay');

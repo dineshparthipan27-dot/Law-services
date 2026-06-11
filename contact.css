@@ -1,166 +1,622 @@
  :root {
-            /* Established Law Firm Theme Colors */
-            --primary-color: #b68d40;
-            --primary-light: #fdf8eb;
-            --primary-dark: #8c6b32;
+     /* Established Law Firm Theme Colors */
+     --primary-color: #b68d40;
+     --primary-light: #fdf8eb;
+     --primary-dark: #8c6b32;
 
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-        }
+     --text-dark: #1e293b;
+     --text-muted: #64748b;
+     --bg-color: #f8fafc;
+     --card-bg: #ffffff;
+     --border-color: #e2e8f0;
+ }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+ body {
+     background-color: var(--bg-color);
+     color: var(--text-dark);
+     line-height: 1.6;
+     overflow-x: hidden;
+ }
 
-        /* ================= Navigation Bar ================= */
-        .navbar {
-            background: var(--card-bg); padding: 15px 5%; display: flex; justify-content: space-between;
-            align-items: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 1000; gap: 15px;
-        }
-        .logo-container { display: flex; align-items: center; }
-        .logo-img { max-height: 45px; width: auto; object-fit: contain; transition: 0.3s ease; }
-        .logo-img:hover { transform: scale(1.05); cursor: pointer; }
-        .nav-links { display: flex; align-items: center; gap: 15px; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; padding: 8px 16px; border-radius: 6px; transition: 0.3s; }
-        .nav-links a.active, .nav-links a:hover { background: var(--primary-light); color: var(--primary-color); }
-        .btn { background: var(--primary-color); color: white; border: none; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; font-size: 15px; transition: 0.3s; white-space: nowrap; cursor: pointer; }
-        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
-        /* ================= Section Containers ================= */
-        .section-container { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-        .bg-white { background-color: var(--card-bg); }
-        .bg-light { background-color: var(--bg-color); }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 36px; color: var(--text-dark); margin-bottom: 15px; }
-        .section-header .divider { height: 4px; width: 60px; background: var(--primary-color); margin: 0 auto 20px auto; border-radius: 2px; }
-        .section-header p { color: var(--text-muted); max-width: 700px; margin: 0 auto; font-size: 16px; }
+ /* ================= Section Containers ================= */
+ .section-container {
+     padding: 80px 5%;
+     max-width: 1200px;
+     margin: 0 auto;
+ }
 
-        /* ================= 1. Hero Section ================= */
-        .hero { padding: 100px 5%; text-align: center; background: linear-gradient(to bottom, var(--card-bg), var(--primary-light)); border-bottom: 1px solid var(--border-color); }
-        .hero h1 { font-size: 48px; color: var(--text-dark); margin-bottom: 20px; line-height: 1.2; }
-        .hero h1 span { color: var(--primary-color); }
-        .hero p { font-size: 18px; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
+ .bg-white {
+     background-color: var(--card-bg);
+ }
 
-        /* ================= 2. Quick Contact Info ================= */
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: -50px; position: relative; z-index: 10; padding: 0 5%; max-width: 1200px; margin-left: auto; margin-right: auto; margin-bottom: 40px;}
-        .info-card { background: var(--card-bg); border-radius: 12px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid var(--border-color); transition: 0.3s; }
-        .info-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
-        .info-card i { font-size: 40px; color: var(--primary-color); margin-bottom: 20px; }
-        .info-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--text-dark); }
-        .info-card p { color: var(--text-muted); font-size: 15px; margin-bottom: 5px; }
-        .info-card a { color: var(--primary-color); font-weight: 700; text-decoration: none; font-size: 16px; }
+ .bg-light {
+     background-color: var(--bg-color);
+ }
 
-        /* ================= 3. Contact Form ================= */
-        .contact-wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; background: var(--card-bg); border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border: 1px solid var(--border-color); overflow: hidden; }
-        .contact-info-side { background: var(--text-dark); color: white; padding: 50px; }
-        .contact-info-side h3 { font-size: 28px; color: var(--primary-light); margin-bottom: 20px; }
-        .contact-info-side p { color: #cbd5e1; margin-bottom: 30px; }
-        .contact-form-side { padding: 50px; }
-        .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; color: var(--text-dark); }
-        .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 15px; border: 1px solid var(--border-color); border-radius: 8px; outline: none; font-size: 15px; font-family: inherit; background: var(--bg-color); transition: 0.3s; }
-        .input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-color: var(--primary-color); background: white; box-shadow: 0 0 0 4px var(--primary-light); }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+ .section-header {
+     text-align: center;
+     margin-bottom: 50px;
+ }
 
-        /* ================= 4. Office Locations ================= */
-        .location-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
-        .location-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); transition: 0.3s; }
-        .location-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); transform: translateY(-5px); }
-        .map-placeholder { width: 100%; height: 250px; background: #e2e8f0; display: flex; justify-content: center; align-items: center; color: var(--text-muted); font-size: 40px; }
-        .location-details { padding: 30px; }
-        .location-details h3 { font-size: 22px; margin-bottom: 15px; color: var(--primary-color); }
-        .loc-info-line { display: flex; gap: 15px; margin-bottom: 15px; align-items: flex-start; }
-        .loc-info-line i { color: var(--primary-color); margin-top: 4px; font-size: 18px; }
-        .loc-info-line p { color: var(--text-muted); font-size: 15px; }
+ .section-header h2 {
+     font-size: 36px;
+     color: var(--text-dark);
+     margin-bottom: 15px;
+ }
 
-        /* ================= 5. Emergency Legal Help ================= */
-        .emergency-banner { background: #7f1d1d; color: white; padding: 60px 5%; text-align: center; border-radius: 16px; margin: 40px 5%; position: relative; overflow: hidden; }
-        .emergency-banner i.bg-icon { position: absolute; font-size: 200px; color: rgba(255,255,255,0.05); right: -20px; top: -50px; transform: rotate(-15deg); }
-        .emergency-banner h2 { font-size: 32px; margin-bottom: 15px; color: #fca5a5; display: flex; justify-content: center; align-items: center; gap: 15px; }
-        .emergency-banner p { font-size: 18px; color: #fecaca; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .emergency-btn { background: white; color: #7f1d1d; padding: 15px 30px; font-size: 18px; font-weight: 800; border-radius: 8px; text-decoration: none; display: inline-block; transition: 0.3s; }
-        .emergency-btn:hover { background: #fecaca; }
+ .section-header .divider {
+     height: 4px;
+     width: 60px;
+     background: var(--primary-color);
+     margin: 0 auto 20px auto;
+     border-radius: 2px;
+ }
 
-        /* ================= 6. What Happens Next ================= */
-        .timeline-flex { display: flex; justify-content: space-between; gap: 20px; position: relative; margin-top: 40px; }
-        .timeline-flex::before { content: ''; position: absolute; top: 30px; left: 10%; right: 10%; height: 2px; background: var(--border-color); z-index: 1; }
-        .timeline-step { flex: 1; text-align: center; position: relative; z-index: 2; }
-        .step-icon { width: 60px; height: 60px; background: var(--card-bg); border: 2px solid var(--primary-color); color: var(--primary-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; margin: 0 auto 20px auto; box-shadow: 0 0 0 8px var(--bg-color); transition: 0.3s; }
-        .timeline-step:hover .step-icon { background: var(--primary-color); color: white; }
-        .timeline-step h4 { font-size: 18px; margin-bottom: 10px; color: var(--text-dark); }
-        .timeline-step p { font-size: 14px; color: var(--text-muted); }
+ .section-header p {
+     color: var(--text-muted);
+     max-width: 700px;
+     margin: 0 auto;
+     font-size: 16px;
+ }
 
-        /* ================= 7. Social Media ================= */
-        .social-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .social-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 20px 40px; border-radius: 12px; font-size: 24px; color: var(--text-muted); transition: 0.3s; text-decoration: none; display: flex; align-items: center; gap: 15px; }
-        .social-card:hover { background: var(--primary-color); color: white; border-color: var(--primary-color); transform: translateY(-5px); }
-        .social-card span { font-size: 16px; font-weight: 600; }
+ /* ================= 1. Hero Section ================= */
+ .hero {
+     padding: 100px 5%;
+     text-align: center;
+     background: linear-gradient(to bottom, var(--card-bg), var(--primary-light));
+     border-bottom: 1px solid var(--border-color);
+ }
 
-        /* ================= 8. FAQ Section ================= */
-        .faq-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 800px; margin: 0 auto; }
-        .faq-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 25px; border-radius: 8px; transition: 0.3s; }
-        .faq-card:hover { border-color: var(--primary-color); box-shadow: 0 4px 10px rgba(182, 141, 64, 0.08); }
-        .faq-card h4 { display: flex; align-items: flex-start; gap: 10px; font-size: 16px; color: var(--text-dark); margin-bottom: 10px; }
-        .faq-card h4 i { color: var(--primary-color); margin-top: 3px; }
-        .faq-card p { font-size: 15px; color: var(--text-muted); padding-left: 26px; }
+ .hero h1 {
+     font-size: 48px;
+     color: var(--text-dark);
+     margin-bottom: 20px;
+     line-height: 1.2;
+ }
 
-        /* ================= Footer ================= */
-        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px; font-size: 14px; }
+ .hero h1 span {
+     color: var(--primary-color);
+ }
 
-        /* Scroll Animations */
-        .scroll-anim { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .scroll-anim.show { opacity: 1; transform: translateY(0); }
+ .hero p {
+     font-size: 18px;
+     color: var(--text-muted);
+     max-width: 700px;
+     margin: 0 auto;
+ }
 
-        /* ================= STRICT MOBILE RESPONSIVENESS ================= */
-        @media (max-width: 992px) {
-            .contact-wrap { grid-template-columns: 1fr; }
-            .contact-info-side { padding: 40px; }
-            .timeline-flex::before { display: none; }
-            .timeline-flex { flex-direction: column; gap: 40px; }
-        }
+ /* ================= 2. Quick Contact Info ================= */
+ .info-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     gap: 30px;
+     margin-top: -50px;
+     position: relative;
+     z-index: 10;
+     padding: 0 5%;
+     max-width: 1200px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 40px;
+ }
 
-        @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; }
-            .logo-img { max-height: 35px; }
-            .nav-links a { padding: 8px 12px; font-size: 14px; }
-            .hero { padding: 80px 5%; }
-            .hero h1 { font-size: 38px; }
-            .section-header h2 { font-size: 28px; }
-            .section-container { padding: 60px 5%; }
-            .info-grid { margin-top: 30px; padding: 0; }
-            .location-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-        }
+ .info-card {
+     background: var(--card-bg);
+     border-radius: 12px;
+     padding: 40px 30px;
+     text-align: center;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+     border: 1px solid var(--border-color);
+     transition: 0.3s;
+ }
 
-        @media (max-width: 480px) {
-            .navbar { padding: 12px 15px; gap: 10px; }
-            .logo-img { max-height: 28px; }
-            .nav-links { display: none; }
-            .navbar .btn { padding: 8px 12px !important; font-size: 14px !important; }
-            .navbar .btn span { display: none; }
-            .navbar .btn i { margin: 0; }
+ .info-card:hover {
+     transform: translateY(-5px);
+     border-color: var(--primary-color);
+ }
 
-            .hero h1 { font-size: 32px; }
-            .section-header h2 { font-size: 24px; }
-            .info-card { padding: 30px 20px; }
-            .contact-form-side { padding: 30px 20px; }
-            
-            .emergency-banner { margin: 20px 5%; padding: 40px 20px; }
-            .emergency-banner h2 { font-size: 24px; flex-direction: column; gap: 10px; }
-            .emergency-btn { width: 100%; font-size: 16px; }
+ .info-card i {
+     font-size: 40px;
+     color: var(--primary-color);
+     margin-bottom: 20px;
+ }
 
-            .social-card { width: 100%; justify-content: center; }
-        }
+ .info-card h3 {
+     font-size: 20px;
+     margin-bottom: 10px;
+     color: var(--text-dark);
+ }
+
+ .info-card p {
+     color: var(--text-muted);
+     font-size: 15px;
+     margin-bottom: 5px;
+ }
+
+ .info-card a {
+     color: var(--primary-color);
+     font-weight: 700;
+     text-decoration: none;
+     font-size: 16px;
+ }
+
+ /* ================= 3. Contact Form ================= */
+ .contact-wrap {
+     display: grid;
+     grid-template-columns: 1fr 1.5fr;
+     gap: 50px;
+     background: var(--card-bg);
+     border-radius: 16px;
+     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+     border: 1px solid var(--border-color);
+     overflow: hidden;
+ }
+
+ .contact-info-side {
+     background: var(--text-dark);
+     color: white;
+     padding: 50px;
+ }
+
+ .contact-info-side h3 {
+     font-size: 28px;
+     color: var(--primary-light);
+     margin-bottom: 20px;
+ }
+
+ .contact-info-side p {
+     color: #cbd5e1;
+     margin-bottom: 30px;
+ }
+
+ .contact-form-side {
+     padding: 50px;
+ }
+
+ .input-group {
+     margin-bottom: 20px;
+ }
+
+ .input-group label {
+     display: block;
+     margin-bottom: 8px;
+     font-weight: 600;
+     font-size: 14px;
+     color: var(--text-dark);
+ }
+
+ .input-group input,
+ .input-group select,
+ .input-group textarea {
+     width: 100%;
+     padding: 15px;
+     border: 1px solid var(--border-color);
+     border-radius: 8px;
+     outline: none;
+     font-size: 15px;
+     font-family: inherit;
+     background: var(--bg-color);
+     transition: 0.3s;
+ }
+
+ .input-group input:focus,
+ .input-group select:focus,
+ .input-group textarea:focus {
+     border-color: var(--primary-color);
+     background: white;
+     box-shadow: 0 0 0 4px var(--primary-light);
+ }
+
+ .form-row {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 20px;
+ }
+
+ /* ================= 4. Office Locations ================= */
+ .location-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+     gap: 40px;
+ }
+
+ .location-card {
+     background: var(--card-bg);
+     border-radius: 12px;
+     overflow: hidden;
+     border: 1px solid var(--border-color);
+     transition: 0.3s;
+ }
+
+ .location-card:hover {
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+     transform: translateY(-5px);
+ }
+
+ .map-placeholder {
+     width: 100%;
+     height: 250px;
+     background: #e2e8f0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: var(--text-muted);
+     font-size: 40px;
+ }
+
+ .location-details {
+     padding: 30px;
+ }
+
+ .location-details h3 {
+     font-size: 22px;
+     margin-bottom: 15px;
+     color: var(--primary-color);
+ }
+
+ .loc-info-line {
+     display: flex;
+     gap: 15px;
+     margin-bottom: 15px;
+     align-items: flex-start;
+ }
+
+ .loc-info-line i {
+     color: var(--primary-color);
+     margin-top: 4px;
+     font-size: 18px;
+ }
+
+ .loc-info-line p {
+     color: var(--text-muted);
+     font-size: 15px;
+ }
+
+ /* ================= 5. Emergency Legal Help ================= */
+ .emergency-banner {
+     background: #7f1d1d;
+     color: white;
+     padding: 60px 5%;
+     text-align: center;
+     border-radius: 16px;
+     margin: 40px 5%;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .emergency-banner i.bg-icon {
+     position: absolute;
+     font-size: 200px;
+     color: rgba(255, 255, 255, 0.05);
+     right: -20px;
+     top: -50px;
+     transform: rotate(-15deg);
+ }
+
+ .emergency-banner h2 {
+     font-size: 32px;
+     margin-bottom: 15px;
+     color: #fca5a5;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 15px;
+ }
+
+ .emergency-banner p {
+     font-size: 18px;
+     color: #fecaca;
+     margin-bottom: 25px;
+     max-width: 700px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ .emergency-btn {
+     background: white;
+     color: #7f1d1d;
+     padding: 15px 30px;
+     font-size: 18px;
+     font-weight: 800;
+     border-radius: 8px;
+     text-decoration: none;
+     display: inline-block;
+     transition: 0.3s;
+ }
+
+ .emergency-btn:hover {
+     background: #fecaca;
+ }
+
+ /* ================= 6. What Happens Next ================= */
+ .timeline-flex {
+     display: flex;
+     justify-content: space-between;
+     gap: 20px;
+     position: relative;
+     margin-top: 40px;
+ }
+
+ .timeline-flex::before {
+     content: '';
+     position: absolute;
+     top: 30px;
+     left: 10%;
+     right: 10%;
+     height: 2px;
+     background: var(--border-color);
+     z-index: 1;
+ }
+
+ .timeline-step {
+     flex: 1;
+     text-align: center;
+     position: relative;
+     z-index: 2;
+ }
+
+ .step-icon {
+     width: 60px;
+     height: 60px;
+     background: var(--card-bg);
+     border: 2px solid var(--primary-color);
+     color: var(--primary-color);
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 24px;
+     margin: 0 auto 20px auto;
+     box-shadow: 0 0 0 8px var(--bg-color);
+     transition: 0.3s;
+ }
+
+ .timeline-step:hover .step-icon {
+     background: var(--primary-color);
+     color: white;
+ }
+
+ .timeline-step h4 {
+     font-size: 18px;
+     margin-bottom: 10px;
+     color: var(--text-dark);
+ }
+
+ .timeline-step p {
+     font-size: 14px;
+     color: var(--text-muted);
+ }
+
+ /* ================= 7. Social Media ================= */
+ .social-grid {
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+     flex-wrap: wrap;
+ }
+
+ .social-card {
+     background: var(--card-bg);
+     border: 1px solid var(--border-color);
+     padding: 20px 40px;
+     border-radius: 12px;
+     font-size: 24px;
+     color: var(--text-muted);
+     transition: 0.3s;
+     text-decoration: none;
+     display: flex;
+     align-items: center;
+     gap: 15px;
+ }
+
+ .social-card:hover {
+     background: var(--primary-color);
+     color: white;
+     border-color: var(--primary-color);
+     transform: translateY(-5px);
+ }
+
+ .social-card span {
+     font-size: 16px;
+     font-weight: 600;
+ }
+
+ /* ================= 8. FAQ Section ================= */
+ .faq-grid {
+     display: grid;
+     grid-template-columns: 1fr;
+     gap: 15px;
+     max-width: 800px;
+     margin: 0 auto;
+ }
+
+ .faq-card {
+     background: var(--card-bg);
+     border: 1px solid var(--border-color);
+     padding: 25px;
+     border-radius: 8px;
+     transition: 0.3s;
+ }
+
+ .faq-card:hover {
+     border-color: var(--primary-color);
+     box-shadow: 0 4px 10px rgba(182, 141, 64, 0.08);
+ }
+
+ .faq-card h4 {
+     display: flex;
+     align-items: flex-start;
+     gap: 10px;
+     font-size: 16px;
+     color: var(--text-dark);
+     margin-bottom: 10px;
+ }
+
+ .faq-card h4 i {
+     color: var(--primary-color);
+     margin-top: 3px;
+ }
+
+ .faq-card p {
+     font-size: 15px;
+     color: var(--text-muted);
+     padding-left: 26px;
+ }
+
+ /* ================= Footer ================= */
+ footer {
+     background: #0f172a;
+     color: #94a3b8;
+     text-align: center;
+     padding: 30px;
+     font-size: 14px;
+ }
+
+ /* Scroll Animations */
+ .scroll-anim {
+     opacity: 0;
+     transform: translateY(30px);
+     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+ }
+
+ .scroll-anim.show {
+     opacity: 1;
+     transform: translateY(0);
+ }
+
+ /* ================= STRICT MOBILE RESPONSIVENESS ================= */
+ @media (max-width: 992px) {
+     .contact-wrap {
+         grid-template-columns: 1fr;
+     }
+
+     .contact-info-side {
+         padding: 40px;
+     }
+
+     .timeline-flex::before {
+         display: none;
+     }
+
+     .timeline-flex {
+         flex-direction: column;
+         gap: 40px;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .navbar {
+         padding: 15px 20px;
+     }
+
+     .logo-img {
+         max-height: 35px;
+     }
+
+     .nav-links a {
+         padding: 8px 12px;
+         font-size: 14px;
+     }
+
+     .hero {
+         padding: 80px 5%;
+     }
+
+     .hero h1 {
+         font-size: 38px;
+     }
+
+     .section-header h2 {
+         font-size: 28px;
+     }
+
+     .section-container {
+         padding: 60px 5%;
+     }
+
+     .info-grid {
+         margin-top: 30px;
+         padding: 0;
+     }
+
+     .location-grid {
+         grid-template-columns: 1fr;
+     }
+
+     .form-row {
+         grid-template-columns: 1fr;
+     }
+ }
+
+ @media (max-width: 480px) {
+     .navbar {
+         padding: 12px 15px;
+         gap: 10px;
+     }
+
+     .logo-img {
+         max-height: 28px;
+     }
+
+     .nav-links {
+         display: none;
+     }
+
+     .navbar .btn {
+         padding: 8px 12px !important;
+         font-size: 14px !important;
+     }
+
+     .navbar .btn span {
+         display: none;
+     }
+
+     .navbar .btn i {
+         margin: 0;
+     }
+
+     .hero h1 {
+         font-size: 32px;
+     }
+
+     .section-header h2 {
+         font-size: 24px;
+     }
+
+     .info-card {
+         padding: 30px 20px;
+     }
+
+     .contact-form-side {
+         padding: 30px 20px;
+     }
+
+     .emergency-banner {
+         margin: 20px 5%;
+         padding: 40px 20px;
+     }
+
+     .emergency-banner h2 {
+         font-size: 24px;
+         flex-direction: column;
+         gap: 10px;
+     }
+
+     .emergency-btn {
+         width: 100%;
+         font-size: 16px;
+     }
+
+     .social-card {
+         width: 100%;
+         justify-content: center;
+     }
+ }

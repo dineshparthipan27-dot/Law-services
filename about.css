@@ -27,187 +27,44 @@ body {
 
 /* ================= Navigation Bar ================= */
 
-    :root {
-            --primary-color: #b68d40;
-            --primary-light: #fdf8eb;
-            --text-dark: #1e293b;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-        }
+:root {
+    --primary-color: #b68d40;
+    --primary-light: #fdf8eb;
+    --text-dark: #1e293b;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        /* ================= Base Navbar Styles (Desktop) ================= */
-        .navbar {
-            background: var(--card-bg);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            gap: 15px;
-        }
+ 
+ 
+ 
+.btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 15px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-img {
-            max-height: 45px;
-            width: auto;
-            object-fit: contain;
-            transition: 0.3s ease;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-
-        .nav-links a.active, .nav-links a:hover {
-            background: var(--primary-light);
-            color: var(--primary-color);
-        }
-
-        .btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            font-size: 15px;
-            transition: 0.3s;
-            white-space: nowrap;
-        }
-
-        .btn:hover {
-            background: #8c6b32;
-        }
-
-        /* ================= Mobile Responsiveness ================= */
-        
-        /* Tablets (max-width: 768px) */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 15px 20px;
-            }
-            .logo-img {
-                max-height: 35px;
-            }
-            .nav-links a {
-                padding: 8px 12px;
-                font-size: 14px;
-            }
-            .btn {
-                padding: 8px 16px;
-                font-size: 14px;
-            }
-        }
-
-        /* Small Phones (max-width: 480px) */
-        @media (max-width: 480px) {
-            .navbar {
-                padding: 12px 15px;
-                gap: 10px; /* Reduces space between items */
-            }
-            
-            .logo-img {
-                max-height: 28px; /* Scales logo down */
-            }
-
-            .nav-links a {
-                padding: 6px 10px;
-                font-size: 13px; /* Smaller text for Nav link */
-            }
-
-            .btn {
-                padding: 8px 12px;
-                font-size: 14px;
-            }
-            
-            /* Hides the word 'Back' and shows only the icon on very small screens to save space */
-            .btn span {
-                display: none;
-            }
-            
-            .btn i {
-                margin: 0; /* Centers the icon since text is hidden */
-            }
-        }
-        /* ================= Mobile Responsiveness ================= */
-        
-        /* Tablets (max-width: 768px) */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 15px 20px;
-            }
-            .logo-img {
-                max-height: 35px;
-            }
-            .nav-links a {
-                padding: 8px 12px;
-                font-size: 14px;
-            }
-            .btn {
-                padding: 8px 16px;
-                font-size: 14px;
-            }
-        }
-
-        /* Small Phones (max-width: 480px) */
-        @media (max-width: 480px) {
-            .navbar {
-                padding: 12px 15px;
-                gap: 10px; /* Reduces space between items */
-            }
-            
-            .logo-img {
-                max-height: 28px; /* Scales logo down */
-            }
-
-            .nav-links a {
-                padding: 6px 10px;
-                font-size: 13px; /* Smaller text for Nav link */
-            }
-
-            .btn {
-                padding: 8px 12px;
-                font-size: 14px;
-            }
-            
-            /* Hides the word 'Back' and shows only the icon on very small screens to save space */
-            .btn span {
-                display: none;
-            }
-            
-            .btn i {
-                margin: 0; /* Centers the icon since text is hidden */
-            }
-        }
-
+.btn:hover {
+    background: #8c6b32;
+}
+ 
 
 
 /* ================= Section Containers ================= */
@@ -616,18 +473,7 @@ footer {
 
 /* Tablets (max-width: 768px) */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-
-    .logo-img {
-        max-height: 35px;
-    }
-
-    .nav-links a {
-        padding: 8px 12px;
-        font-size: 14px;
-    }
+ 
 
     .hero h1 {
         font-size: 36px;
@@ -659,25 +505,8 @@ footer {
 
 /* Mobile Phones (max-width: 480px) */
 @media (max-width: 480px) {
-    .navbar {
-        padding: 12px 15px;
-        gap: 10px;
-    }
-
-    .logo-img {
-        max-height: 28px;
-    }
-
-    .nav-links a {
-        padding: 6px 10px;
-        font-size: 13px;
-    }
-
-    .navbar .btn {
-        padding: 6px 12px !important;
-        font-size: 12px !important;
-    }
-
+ 
+ 
     .hero {
         padding: 60px 5%;
     }
