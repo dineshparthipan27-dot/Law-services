@@ -1,0 +1,735 @@
+:root {
+    /* Established Law Firm Theme Colors */
+    --primary-color: #b68d40;
+    --primary-light: #fdf8eb;
+    --primary-dark: #8c6b32;
+
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ================= Navigation Bar ================= */
+
+    :root {
+            --primary-color: #b68d40;
+            --primary-light: #fdf8eb;
+            --text-dark: #1e293b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* ================= Base Navbar Styles (Desktop) ================= */
+        .navbar {
+            background: var(--card-bg);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            gap: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            max-height: 45px;
+            width: auto;
+            object-fit: contain;
+            transition: 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            font-size: 15px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background: #8c6b32;
+        }
+
+        /* ================= Mobile Responsiveness ================= */
+        
+        /* Tablets (max-width: 768px) */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            .logo-img {
+                max-height: 35px;
+            }
+            .nav-links a {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+            .btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+
+        /* Small Phones (max-width: 480px) */
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 12px 15px;
+                gap: 10px; /* Reduces space between items */
+            }
+            
+            .logo-img {
+                max-height: 28px; /* Scales logo down */
+            }
+
+            .nav-links a {
+                padding: 6px 10px;
+                font-size: 13px; /* Smaller text for Nav link */
+            }
+
+            .btn {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+            
+            /* Hides the word 'Back' and shows only the icon on very small screens to save space */
+            .btn span {
+                display: none;
+            }
+            
+            .btn i {
+                margin: 0; /* Centers the icon since text is hidden */
+            }
+        }
+        /* ================= Mobile Responsiveness ================= */
+        
+        /* Tablets (max-width: 768px) */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            .logo-img {
+                max-height: 35px;
+            }
+            .nav-links a {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+            .btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+
+        /* Small Phones (max-width: 480px) */
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 12px 15px;
+                gap: 10px; /* Reduces space between items */
+            }
+            
+            .logo-img {
+                max-height: 28px; /* Scales logo down */
+            }
+
+            .nav-links a {
+                padding: 6px 10px;
+                font-size: 13px; /* Smaller text for Nav link */
+            }
+
+            .btn {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+            
+            /* Hides the word 'Back' and shows only the icon on very small screens to save space */
+            .btn span {
+                display: none;
+            }
+            
+            .btn i {
+                margin: 0; /* Centers the icon since text is hidden */
+            }
+        }
+
+
+
+/* ================= Section Containers ================= */
+.section-container {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bg-white {
+    background-color: var(--card-bg);
+}
+
+.bg-light {
+    background-color: var(--bg-color);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.section-header .divider {
+    height: 4px;
+    width: 60px;
+    background: var(--primary-color);
+    margin: 0 auto 20px auto;
+    border-radius: 2px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+/* ================= 1. Hero Section ================= */
+.hero {
+    padding: 100px 5%;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--card-bg), var(--primary-light));
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero h1 span {
+    color: var(--primary-color);
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+/* ================= 2. Our Story Section ================= */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.story-text h3 {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.story-text p {
+    margin-bottom: 15px;
+    color: var(--text-muted);
+    font-size: 16px;
+    text-align: justify;
+}
+
+.story-image {
+    background: var(--primary-light);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    border: 2px dashed var(--primary-color);
+}
+
+.story-image i {
+    font-size: 100px;
+    color: var(--primary-color);
+    opacity: 0.8;
+}
+
+/* ================= 3. Core Values Section ================= */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.value-card {
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.value-card i {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    background: var(--primary-light);
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+}
+
+.value-card h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.value-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+}
+
+/* ================= 4. Milestones / Stats Banner ================= */
+.stats-banner {
+    background: var(--primary-color);
+    color: white;
+    padding: 60px 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item i {
+    font-size: 40px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.stat-item h3 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ================= 5. Expertise Section ================= */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.expertise-item {
+    background: var(--primary-light);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 4px solid var(--primary-color);
+    transition: 0.3s;
+}
+
+.expertise-item:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.expertise-item:hover i,
+.expertise-item:hover h4 {
+    color: white;
+}
+
+.expertise-item i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.expertise-item h4 {
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+/* ================= 6. Team Section ================= */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.team-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.team-card:hover {
+    box-shadow: 0 10px 20px rgba(182, 141, 64, 0.15);
+    transform: translateY(-5px);
+}
+
+.team-img {
+    background: var(--primary-light);
+    padding: 40px 0;
+    color: var(--primary-color);
+    font-size: 60px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.team-info {
+    padding: 20px;
+}
+
+.team-info h4 {
+    font-size: 20px;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.team-info span {
+    font-size: 13px;
+    color: var(--primary-color);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.team-info p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* ================= 7. Testimonials ================= */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+}
+
+.testimonial-card i.fa-quote-left {
+    font-size: 40px;
+    color: var(--primary-light);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 0;
+}
+
+.stars {
+    color: #f59e0b;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.client-name {
+    font-weight: 700;
+    color: var(--text-dark);
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+/* ================= 8. FAQ Section ================= */
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.faq-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(182, 141, 64, 0.08);
+}
+
+.faq-card h4 {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.faq-card h4 i {
+    color: var(--primary-color);
+    margin-top: 3px;
+}
+
+.faq-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    padding-left: 26px;
+}
+
+/* ================= 9. CTA Section ================= */
+.cta-section {
+    background: var(--text-dark);
+    color: white;
+    text-align: center;
+    padding: 80px 5%;
+}
+
+.cta-section h2 {
+    font-size: 32px;
+    color: var(--primary-light);
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 16px;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Footer */
+footer {
+    background: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+}
+
+/* Scroll Animations */
+.scroll-anim {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-anim.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= Mobile Responsiveness ================= */
+
+/* Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .logo-img {
+        max-height: 35px;
+    }
+
+    .nav-links a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .section-header h2 {
+        font-size: 28px;
+    }
+
+    .section-container {
+        padding: 50px 5%;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .stats-banner {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .values-grid,
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 12px 15px;
+        gap: 10px;
+    }
+
+    .logo-img {
+        max-height: 28px;
+    }
+
+    .nav-links a {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    .navbar .btn {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .section-header h2 {
+        font-size: 24px;
+    }
+
+    .story-image {
+        padding: 25px;
+    }
+
+    .story-image i {
+        font-size: 60px;
+    }
+
+    .story-image h4 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .stats-banner {
+        grid-template-columns: 1fr;
+        padding: 40px 5%;
+    }
+
+    .stat-item h3 {
+        font-size: 32px;
+    }
+
+    .cta-section {
+        padding: 50px 5%;
+    }
+
+    .cta-section h2 {
+        font-size: 26px;
+    }
+
+    .faq-card h4 {
+        font-size: 15px;
+    }
+
+    .faq-card p {
+        font-size: 14px;
+        padding-left: 24px;
+    }
+}

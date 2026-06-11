@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Client Portal - Law Firm</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            /* Theme Colors */
+            --primary-color: #b68d40;
+            --primary-light: #fdf8eb;
+            --primary-dark: #8c6b32;
+
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --bg-color: #f8fafc;
+            --sidebar-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            position: fixed;
+            height: 100vh;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.5);
+            z-index: 999;
+            backdrop-filter: blur(2px);
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+        }
+
+        .sidebar-header {
+            padding: 25px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-da {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-color);
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo-da i {
+            font-size: 28px;
+        }
+
+        .close-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .menu-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 25px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            cursor: pointer;
+        }
+
+        .menu-link i {
+            font-size: 18px;
+            width: 25px;
+            text-align: center;
+        }
+
+        .menu-link:hover,
+        .menu-link.active {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .sidebar-bottom {
+            padding: 15px 0 25px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .logout-btn {
+            color: #ef4444;
+        }
+
+        .logout-btn:hover {
+            background-color: #fee2e2;
+            color: #dc2626;
+            border-left: 4px solid #dc2626;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-left: 260px;
+            min-height: 100vh;
+            width: calc(100% - 260px);
+        }
+
+        .top-header {
+            background-color: #fff;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 998;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            border: none;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .greeting h1 {
+            font-size: 22px;
+            color: var(--text-dark);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: right;
+        }
+
+        .user-role {
+            font-size: 12px;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .user-email {
+            font-size: 14px;
+            color: var(--text-dark);
+            font-weight: 600;
+            display: block;
+        }
+
+        .user-avatar i {
+            font-size: 40px;
+            color: var(--primary-color);
+        }
+
+        /* Views & Animations */
+        .view-section {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.4s ease-in-out;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .view-section.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .scroll-anim {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-anim.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Grids & Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .stat-details h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .stat-details p {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .content-box {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .three-col-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Tables */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            min-width: 600px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        th {
+            background-color: var(--bg-color);
+            color: var(--text-muted);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        tr:hover {
+            background-color: #fafaf9;
+        }
+
+        /* Status Badges */
+        .status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status.completed {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+
+        .status.pending {
+            background: #fff3e0;
+            color: #ef6c00;
+            border: 1px solid #ffe0b2;
+        }
+
+        .status.alert {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+
+        .status.info {
+            background: #e3f2fd;
+            color: #1565c0;
+            border: 1px solid #bbdefb;
+        }
+
+        /* Case Progress Bar */
+        .case-progress {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .progress-track {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .progress-track::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #e2e8f0;
+            z-index: 1;
+        }
+
+        .progress-fill {
+            position: absolute;
+            top: 12px;
+            left: 0;
+            height: 3px;
+            background: var(--primary-color);
+            z-index: 2;
+            transition: width 1s ease;
+        }
+
+        .progress-step {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 60px;
+        }
+
+        .step-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .step-icon.active {
+            background: var(--primary-color);
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+
+        .step-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .step-label.active {
+            color: var(--primary-color);
+        }
+
+        /* Documents / Folders */
+        .folder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .folder-card {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            /* cursor: pointer; */
+            transition: 0.3s;
+            background: #fff;
+        }
+
+        .folder-card:hover {
+            border-color: var(--primary-color);
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        .folder-card i {
+            font-size: 35px;
+            color: var(--primary-color);
+        }
+
+        .folder-info h4 {
+            font-size: 15px;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+        }
+
+        .folder-info p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Buttons & Inputs */
+        .action-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .edit-btn {
+            background: #e3f2fd;
+            color: #1565c0;
+            border: 1px solid #bbdefb;
+        }
+
+        .edit-btn:hover {
+            background: #bbdefb;
+        }
+
+        .view-btn {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border: 1px solid var(--primary-color);
+        }
+
+        .view-btn:hover {
+            background: #f0e4cc;
+        }
+
+        .pay-btn {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+
+        .pay-btn:hover {
+            background: #c8e6c9;
+        }
+
+        .main-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            width: 100%;
+            font-size: 15px;
+        }
+
+        .main-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        /* Lists & Timelines */
+        .simple-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .simple-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .simple-list li:last-child {
+            border-bottom: none;
+        }
+
+        .timeline {
+            margin-top: 15px;
+            border-left: 2px solid var(--primary-light);
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 2px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 1px var(--primary-light);
+        }
+
+        .timeline-item h4 {
+            font-size: 15px;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .timeline-item p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 5px;
+        }
+
+        .time-badge {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: var(--primary-light);
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .close-btn {
+                display: block;
+            }
+
+            .two-col-grid,
+            .three-col-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .top-header {
+                padding: 15px;
+            }
+
+            .view-section {
+                padding: 15px;
+                gap: 20px;
+            }
+
+            .user-info {
+                display: none;
+            }
+
+            .greeting h1 {
+                font-size: 18px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-box {
+                padding: 15px;
+            }
+
+            .progress-step {
+                width: 40px;
+            }
+
+            .step-label {
+                font-size: 9px;
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo img {
+            width: 180px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Client Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-top">
+                <div class="sidebar-header">
+                    <div class="logo">
+                        <img src="./asset/logo (2).webp" alt="Company Logo" class="logo-img">
+                    </div>
+                    <button class="close-btn" id="closeSidebar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <ul class="sidebar-menu">
+                    <li><a class="menu-link active" data-target="dashboard-view"><i class="fa-solid fa-house"></i>
+                            Home</a></li>
+                    <li><a class="menu-link" data-target="cases-view"><i class="fa-solid fa-folder-open"></i> My
+                            Cases</a></li>
+                    <li><a class="menu-link" data-target="appointments-view"><i class="fa-solid fa-calendar-check"></i>
+                            Appointments</a></li>
+                    <li><a class="menu-link" data-target="documents-view"><i class="fa-solid fa-file-shield"></i> Vault
+                            & Docs</a></li>
+                    <li><a class="menu-link" data-target="invoices-view"><i class="fa-solid fa-file-invoice-dollar"></i>
+                            Billing</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-bottom">
+                <a href="#" class="menu-link logout-btn" id="logoutBtn">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="openSidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="greeting">
+                        <h1 id="page-title">Home <span class="welcome-name"></span></h1>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <span class="user-role">Client Portal</span>
+                            <span class="user-email">karthik@example.com</span>
+                        </div>
+                        <div class="user-avatar">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ============================================== -->
+            <!-- 1. HOME / DASHBOARD VIEW -->
+            <!-- ============================================== -->
+            <div id="dashboard-view" class="view-section active">
+                <section class="stats-grid scroll-anim">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--primary-light); color: var(--primary-color);">
+                            <i class="fa-solid fa-scale-unbalanced"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>2</h3>
+                            <p>Active Cases</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #e3f2fd; color: #1565c0;">
+                            <i class="fa-solid fa-calendar-day"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Nov 02</h3>
+                            <p>Next Hearing Date</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #ffebee; color: #c62828;">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>₹5,000</h3>
+                            <p>Pending Dues</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #e8f5e9; color: #2e7d32;">
+                            <i class="fa-solid fa-file-signature"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>1</h3>
+                            <p>Document to Sign</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="two-col-grid">
+                    <!-- Notifications Timeline -->
+                    <section class="content-box scroll-anim">
+                        <h2 class="section-title">Recent Updates</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4>Counter-Affidavit Uploaded</h4>
+                                <p>Adv. Siva Reddy has uploaded the final draft for your review in the Property Dispute
+                                    case.</p>
+                                <span class="time-badge">Today, 10:30 AM</span>
+                            </div>
+                            <div class="timeline-item">
+                                <h4>Hearing Adjourned</h4>
+                                <p>The hearing for Case #1082 was moved to Nov 02 due to judge unavailability.</p>
+                                <span class="time-badge">Oct 20, 2026</span>
+                            </div>
+                            <div class="timeline-item">
+                                <h4>Payment Receipt Generated</h4>
+                                <p>Your payment of ₹10,000 for Invoice #INV-089 has been successfully processed.</p>
+                                <span class="time-badge">Oct 15, 2026</span>
+                            </div>
+                        </div>
+                        <a href="404.html" class="action-btn view-btn" style="width: 100%; margin-top: 10px;">View All
+                            Activity</a>
+                    </section>
+
+                    <!-- To-Do / Action Required -->
+                    <section class="content-box scroll-anim">
+                        <h2 class="section-title">Action Required</h2>
+                        <ul class="simple-list">
+                            <li>
+                                <div>
+                                    <i class="fa-solid fa-file-signature"
+                                        style="color: #c62828; margin-right: 10px; font-size: 18px;"></i>
+                                    <strong style="font-size: 15px;">Sign Vakalatnama</strong><br>
+                                    <span style="font-size:13px; color:var(--text-muted); padding-left: 28px;">Please
+                                        visit the office to physically sign the document.</span>
+                                </div>
+                                <span class="status alert">Urgent</span>
+                            </li>
+                            <li>
+                                <div>
+                                    <i class="fa-solid fa-file-invoice-dollar"
+                                        style="color: #ef6c00; margin-right: 10px; font-size: 18px;"></i>
+                                    <strong style="font-size: 15px;">Clear Pending Dues</strong><br>
+                                    <span style="font-size:13px; color:var(--text-muted); padding-left: 28px;">Invoice
+                                        #INV-091 is pending.</span>
+                                </div>
+                                <a href="404.html" class="action-btn pay-btn"
+                                    onclick="document.querySelector('[data-target=\'invoices-view\']').click()">Pay
+                                    ₹5,000</a>
+                            </li>
+                            <li>
+                                <div>
+                                    <i class="fa-solid fa-file-arrow-up"
+                                        style="color: #1565c0; margin-right: 10px; font-size: 18px;"></i>
+                                    <strong style="font-size: 15px;">Upload ID Proof</strong><br>
+                                    <span style="font-size:13px; color:var(--text-muted); padding-left: 28px;">Aadhar or
+                                        PAN required for verification.</span>
+                                </div>
+                                <a href="404.html" class="action-btn edit-btn"
+                                    onclick="document.querySelector('[data-target=\'documents-view\']').click()">Upload</a>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- 2. MY CASES VIEW -->
+            <!-- ============================================== -->
+            <div id="cases-view" class="view-section">
+                <section class="content-box scroll-anim"
+                    style="background: transparent; border: none; padding: 0; box-shadow: none;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+                        <h2 class="section-title" style="margin-bottom:0;">My Legal Cases</h2>
+                        <a href="404.html" class="action-btn view-btn"><i class="fa-solid fa-plus"></i> Request New Case</a>
+                    </div>
+
+                    <!-- Case 1 with Progress Tracking -->
+                    <div class="content-box scroll-anim" style="margin-bottom: 20px;">
+                        <div
+                            style="display:flex; justify-content:space-between; flex-wrap: wrap; gap: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 15px;">
+                            <div>
+                                <h3 style="font-size: 20px; color: var(--text-dark); margin-bottom: 5px;">Karthik vs
+                                    State Government</h3>
+                                <p style="font-size: 13px; color: var(--text-muted);">
+                                    <i class="fa-solid fa-hashtag"></i> CASE-1082 &nbsp;|&nbsp;
+                                    <i class="fa-solid fa-user-tie"></i> Adv. Siva Reddy &nbsp;|&nbsp;
+                                    <i class="fa-solid fa-building-columns"></i> High Court
+                                </p>
+                            </div>
+                            <div><span class="status info">Hearing Stage</span></div>
+                        </div>
+
+                        <!-- Progress Tracker -->
+                        <div class="case-progress">
+                            <p style="font-size: 14px; font-weight: 600; margin-bottom: 15px;">Case Progress Tracking:
+                            </p>
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 50%;"></div>
+                                <div class="progress-step">
+                                    <div class="step-icon active"><i class="fa-solid fa-check"></i></div>
+                                    <div class="step-label active">Filing</div>
+                                </div>
+                                <div class="progress-step">
+                                    <div class="step-icon active"><i class="fa-solid fa-check"></i></div>
+                                    <div class="step-label active">Notices</div>
+                                </div>
+                                <div class="progress-step">
+                                    <div class="step-icon active"
+                                        style="background: var(--primary-light); color: var(--primary-color); border: 2px solid var(--primary-color);">
+                                        <i class="fa-solid fa-spinner"></i>
+                                    </div>
+                                    <div class="step-label active">Hearings</div>
+                                </div>
+                                <div class="progress-step">
+                                    <div class="step-icon"><i class="fa-solid fa-gavel"></i></div>
+                                    <div class="step-label">Judgment</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            style="background: var(--primary-light); padding: 15px; border-radius: 8px; margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 3px;">Next Action:
+                                </p>
+                                <p style="font-size: 15px; font-weight: 700; color: var(--primary-dark);"><i
+                                        class="fa-solid fa-calendar-check"></i> Hearing on Nov 02, 2026</p>
+                            </div>
+                            <a href="404.html" class="action-btn main-btn" style="width: auto;"><i
+                                    class="fa-solid fa-comments"></i> Message Lawyer</a>
+                        </div>
+                    </div>
+
+                    <!-- Case 2 -->
+                    <div class="content-box scroll-anim">
+                        <div
+                            style="display:flex; justify-content:space-between; flex-wrap: wrap; gap: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 15px;">
+                            <div>
+                                <h3 style="font-size: 20px; color: var(--text-dark); margin-bottom: 5px;">Family
+                                    Property Partition</h3>
+                                <p style="font-size: 13px; color: var(--text-muted);">
+                                    <i class="fa-solid fa-hashtag"></i> CASE-1090 &nbsp;|&nbsp;
+                                    <i class="fa-solid fa-user-tie"></i> Adv. Anjali Sharma &nbsp;|&nbsp;
+                                    <i class="fa-solid fa-file-contract"></i> Civil Documentation
+                                </p>
+                            </div>
+                            <div><span class="status pending">Drafting</span></div>
+                        </div>
+
+                        <div
+                            style="background: #fff5f5; padding: 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 3px;">Action
+                                    Required:</p>
+                                <p style="font-size: 15px; font-weight: 700; color: #c62828;"><i
+                                        class="fa-solid fa-triangle-exclamation"></i> Upload EC Document for
+                                    verification</p>
+                            </div>
+                            <a href="404.html" class="action-btn edit-btn"
+                                style="width: auto; background: #ffebee; color: #c62828; border-color: #ffcdd2;"
+                                onclick="document.querySelector('[data-target=\'documents-view\']').click()">Upload
+                                Now</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- 3. APPOINTMENTS VIEW -->
+            <!-- ============================================== -->
+            <div id="appointments-view" class="view-section">
+                <div class="two-col-grid">
+                    <!-- Book Appointment Form -->
+                    <section class="content-box scroll-anim">
+                        <h2 class="section-title">Book a Consultation</h2>
+                        <form id="appointmentForm">
+                            <div class="input-group">
+                                <label
+                                    style="font-size: 13px; font-weight: 600; margin-bottom: 5px; display: block;">Select
+                                    Attorney</label>
+                                <select required>
+                                    <option value="" selected disabled>Choose...</option>
+                                    <option>Adv. Siva Reddy (Property & Criminal)</option>
+                                    <option>Adv. Anjali Sharma (Family & Civil)</option>
+                                    <option>General Legal Support</option>
+                                </select>
+                            </div>
+                            <div class="input-group" style="display:flex; gap:10px;">
+                                <div style="flex:1;">
+                                    <label
+                                        style="font-size: 13px; font-weight: 600; margin-bottom: 5px; display: block;">Date</label>
+                                    <input type="date" required>
+                                </div>
+                                <div style="flex:1;">
+                                    <label
+                                        style="font-size: 13px; font-weight: 600; margin-bottom: 5px; display: block;">Time</label>
+                                    <select required>
+                                        <option value="" selected disabled>Select Slot</option>
+                                        <option>10:00 AM - 11:00 AM</option>
+                                        <option>11:30 AM - 12:30 PM</option>
+                                        <option>04:00 PM - 05:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label
+                                    style="font-size: 13px; font-weight: 600; margin-bottom: 5px; display: block;">Meeting
+                                    Type</label>
+                                <select required>
+                                    <option value="" selected disabled>Choose Mode...</option>
+                                    <option>In-Person (Law Firm Office)</option>
+                                    <option>Video Call (Google Meet / Zoom)</option>
+                                    <option>Phone Call</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label
+                                    style="font-size: 13px; font-weight: 600; margin-bottom: 5px; display: block;">Reason
+                                    / Notes</label>
+                                <textarea rows="3"
+                                    placeholder="Briefly describe what you'd like to discuss..."></textarea>
+                            </div>
+                            <button type="submit" class="action-btn main-btn">
+                                <i class="fa-solid fa-calendar-check"></i> Request Appointment
+                            </button>
+                        </form>
+                    </section>
+
+                    <!-- Scheduled Appointments List -->
+                    <section class="content-box scroll-anim" style="display: flex; flex-direction: column;">
+                        <h2 class="section-title">My Schedule</h2>
+
+                        <!-- Upcoming Tab -->
+                        <div style="flex-grow: 1;">
+                            <h4
+                                style="font-size: 14px; color: var(--primary-dark); margin-bottom: 10px; border-bottom: 1px solid var(--border-color); padding-bottom: 5px;">
+                                Upcoming</h4>
+                            <ul class="simple-list" style="margin-top: 0;">
+                                <li
+                                    style="flex-direction: column; align-items: flex-start; gap: 10px; background: #fafaf9; padding: 15px; border-radius: 8px; border: 1px solid var(--primary-light);">
+                                    <div style="display: flex; justify-content: space-between; width: 100%;">
+                                        <strong><i class="fa-solid fa-video"
+                                                style="color: #1565c0; margin-right:5px;"></i> Video
+                                            Consultation</strong>
+                                        <span class="status info">Tomorrow</span>
+                                    </div>
+                                    <p style="font-size: 13px; color: var(--text-muted);"><i
+                                            class="fa-regular fa-clock"></i> Oct 25, 2026 | 11:30 AM</p>
+                                    <p style="font-size: 13px; color: var(--text-muted);"><i
+                                            class="fa-solid fa-user-tie"></i> Adv. Anjali Sharma</p>
+                                    <div style="width: 100%; display: flex; gap: 10px; margin-top: 5px;">
+                                        <a href="404.html" class="action-btn main-btn"
+                                            style="padding: 6px 10px; font-size: 12px;"><i class="fa-solid fa-link"></i>
+                                            Join Meeting</a>
+                                        <a href="404.html" class="action-btn edit-btn"
+                                            style="padding: 6px 10px; font-size: 12px;">Reschedule</a>
+                                    </div>
+                                </li>
+
+                                <li
+                                    style="flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 15px;">
+                                    <div style="display: flex; justify-content: space-between; width: 100%;">
+                                        <strong><i class="fa-solid fa-handshake"
+                                                style="color: var(--primary-color); margin-right:5px;"></i> Office Visit
+                                            - Signatures</strong>
+                                        <span class="status pending">Confirmed</span>
+                                    </div>
+                                    <p style="font-size: 13px; color: var(--text-muted);"><i
+                                            class="fa-regular fa-clock"></i> Oct 28, 2026 | 04:00 PM</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Past Tab -->
+                        <div style="margin-top: 20px;">
+                            <h4
+                                style="font-size: 14px; color: var(--text-muted); margin-bottom: 10px; border-bottom: 1px solid var(--border-color); padding-bottom: 5px;">
+                                Past Appointments</h4>
+                            <ul class="simple-list" style="margin-top: 0;">
+                                <li>
+                                    <div>
+                                        <strong>Initial Case Discussion</strong><br>
+                                        <span style="font-size:12px; color:var(--text-muted);">Oct 10, 2026 | 10:00
+                                            AM</span>
+                                    </div>
+                                    <span class="status completed">Completed</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- 4. DOCUMENTS VAULT VIEW -->
+            <!-- ============================================== -->
+            <div id="documents-view" class="view-section">
+                <section class="content-box scroll-anim">
+                    <div
+                        style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px;">
+                        <h2 class="section-title" style="margin-bottom:0;">My Legal Vault</h2>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" placeholder="Search files..."
+                                style="padding: 8px 15px; border: 1px solid var(--border-color); border-radius: 6px; outline: none;">
+                            <a href="404.html" class="action-btn main-btn" style="width: auto; padding: 8px 15px;"
+                                onclick="document.getElementById('fileUpload').click()">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+                        </a>
+                            <input type="file" id="fileUpload" style="display:none;" multiple>
+                        </div>
+                    </div>
+
+                    <!-- Folders -->
+                    <h3 style="font-size: 15px; color: var(--text-muted); margin-bottom: 15px;">Folders</h3>
+                    <div class="folder-grid" style="margin-bottom: 30px;">
+                        <div class="folder-card">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <div class="folder-info">
+                                <h4>Case #1082 Files</h4>
+                                <p>12 Documents</p>
+                            </div>
+                        </div>
+                        <div class="folder-card">
+                            <i class="fa-solid fa-folder-closed"></i>
+                            <div class="folder-info">
+                                <h4>Case #1090 Files</h4>
+                                <p>4 Documents</p>
+                            </div>
+                        </div>
+                        <div class="folder-card">
+                            <i class="fa-solid fa-file-invoice" style="color: #64748b;"></i>
+                            <div class="folder-info">
+                                <h4>Invoices & Receipts</h4>
+                                <p>5 Files</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Files Table -->
+                    <h3 style="font-size: 15px; color: var(--text-muted); margin-bottom: 15px;">Recent Files</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Document Name</th>
+                                    <th>Uploaded By</th>
+                                    <th>Date</th>
+                                    <th>Size</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong><i class="fa-solid fa-file-pdf"
+                                                style="color: #d32f2f; margin-right: 8px;"></i>
+                                            Counter_Affidavit_Draft.pdf</strong></td>
+                                    <td>Adv. Siva (Firm)</td>
+                                    <td>Oct 24, 2026</td>
+                                    <td>2.4 MB</td>
+                                    <td>
+                                        <a href="404.html" class="action-btn view-btn" style="padding: 6px 12px;"><i
+                                                class="fa-solid fa-download"></i></a>
+                                        <a href="404.html" class="action-btn edit-btn" style="padding: 6px 12px;"><i
+                                                class="fa-solid fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong><i class="fa-solid fa-file-image"
+                                                style="color: #1976d2; margin-right: 8px;"></i>
+                                            Aadhar_Front_Back.jpg</strong></td>
+                                    <td>You</td>
+                                    <td>Oct 10, 2026</td>
+                                    <td>1.1 MB</td>
+                                    <td>
+                                        <a href="404.html" class="action-btn view-btn" style="padding: 6px 12px;"><i
+                                                class="fa-solid fa-download"></i></a>
+                                        <a href="404.html" class="action-btn edit-btn" style="padding: 6px 12px;"><i
+                                                class="fa-solid fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong><i class="fa-solid fa-file-word"
+                                                style="color: #0277bd; margin-right: 8px;"></i>
+                                            Property_Deed_Copy.docx</strong></td>
+                                    <td>You</td>
+                                    <td>Sep 28, 2026</td>
+                                    <td>5.6 MB</td>
+                                    <td>
+                                        <a href="404.html" class="action-btn view-btn" style="padding: 6px 12px;"><i
+                                                class="fa-solid fa-download"></i></a>
+                                        <a href="404.html" class="action-btn edit-btn" style="padding: 6px 12px;"><i
+                                                class="fa-solid fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- 5. BILLING & INVOICES VIEW -->
+            <!-- ============================================== -->
+            <div id="invoices-view" class="view-section">
+
+                <!-- Billing Summary -->
+                <div class="three-col-grid" style="margin-bottom: 20px;">
+                    <div class="content-box scroll-anim" style="text-align: center; padding: 20px;">
+                        <p
+                            style="font-size: 13px; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; font-weight: 600;">
+                            Total Billed</p>
+                        <h2 style="font-size: 28px; color: var(--text-dark);">₹17,500</h2>
+                    </div>
+                    <div class="content-box scroll-anim" style="text-align: center; padding: 20px;">
+                        <p
+                            style="font-size: 13px; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; font-weight: 600;">
+                            Total Paid</p>
+                        <h2 style="font-size: 28px; color: #2e7d32;">₹12,500</h2>
+                    </div>
+                    <div class="content-box scroll-anim"
+                        style="text-align: center; padding: 20px; border: 2px solid #ffcdd2; background: #fff5f5;">
+                        <p
+                            style="font-size: 13px; color: #c62828; margin-bottom: 5px; text-transform: uppercase; font-weight: 600;">
+                            Amount Due</p>
+                        <h2 style="font-size: 28px; color: #c62828;">₹5,000</h2>
+                        <a href="404.html" class="action-btn pay-btn" style="margin-top: 10px;">Pay Balance</a>
+                    </div>
+                </div>
+
+                <section class="content-box scroll-anim">
+                    <h2 class="section-title">Invoice History</h2>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Invoice No.</th>
+                                    <th>Date Issued</th>
+                                    <th>Description / Case</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#INV-091</strong></td>
+                                    <td>Oct 20, 2026</td>
+                                    <td>Drafting Fees <br><span style="font-size: 11px; color: var(--text-muted);">Case
+                                            #1090</span></td>
+                                    <td><strong style="font-size: 15px;">₹5,000</strong></td>
+                                    <td><span class="status alert">Unpaid</span></td>
+                                    <td>
+                                        <a href="404.html" class="action-btn pay-btn"><i class="fa-solid fa-credit-card"></i> Pay
+                                            Now</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#INV-089</strong></td>
+                                    <td>Oct 10, 2026</td>
+                                    <td>Retainer Fee (October) <br><span
+                                            style="font-size: 11px; color: var(--text-muted);">General Account</span>
+                                    </td>
+                                    <td><strong style="font-size: 15px;">₹10,000</strong></td>
+                                    <td><span class="status completed">Paid</span></td>
+                                    <td>
+                                        <a href="404.html" class="action-btn view-btn"><i class="fa-solid fa-file-pdf"></i>
+                                            Receipt</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#INV-075</strong></td>
+                                    <td>Sep 15, 2026</td>
+                                    <td>Initial Consultation <br><span
+                                            style="font-size: 11px; color: var(--text-muted);">Case #1082</span></td>
+                                    <td><strong style="font-size: 15px;">₹2,500</strong></td>
+                                    <td><span class="status completed">Paid</span></td>
+                                    <td>
+                                        <a href="404.html" class="action-btn view-btn"><i class="fa-solid fa-file-pdf"></i>
+                                            Receipt</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Local Storage for User Name simulation
+        const emailValue = localStorage.getItem("ClientMail");
+        const email = emailValue || "karthik@example.com";
+        const extractedName = email.split("@")[0];
+        const formattedName = extractedName.charAt(0).toUpperCase() + extractedName.slice(1);
+        document.querySelector(".user-email").textContent = email;
+        const welcomeEl = document.querySelector(".welcome-name");
+        if (welcomeEl) { welcomeEl.textContent = `| Welcome, ${formattedName} 👋`; }
+
+        // Sidebar Toggle Logic
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        const openSidebarBtn = document.getElementById('openSidebar');
+        const closeSidebarBtn = document.getElementById('closeSidebar');
+
+        function openSidebar() { sidebar.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeSidebar() { sidebar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = 'auto'; }
+
+        openSidebarBtn.addEventListener('click', openSidebar);
+        closeSidebarBtn.addEventListener('click', closeSidebar);
+        overlay.addEventListener('click', closeSidebar);
+
+        // Navigation Logic
+        const menuLinks = document.querySelectorAll('.sidebar-menu .menu-link');
+        const views = document.querySelectorAll('.view-section');
+        const pageTitle = document.getElementById('page-title');
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                menuLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                views.forEach(v => v.classList.remove('active'));
+
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+
+                pageTitle.innerHTML = `${this.innerText} <span class="welcome-name">| Welcome, ${formattedName} 👋</span>`;
+
+                if (window.innerWidth <= 992) { closeSidebar(); }
+                triggerAnimations();
+            });
+        });
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem("ClientMail");
+            window.location.href = "login.html";
+
+        });
+
+        // Form Mocks
+        document.getElementById("appointmentForm")?.addEventListener("submit", (e) => {
+            e.preventDefault();
+             window.location.href = "404.html";
+            e.target.reset();
+        });
+
+        document.getElementById('fileUpload').addEventListener('change', function () {
+            if (this.files && this.files.length > 0) {
+                alert(`Successfully queued ${this.files.length} file(s) for secure upload.`);
+            }
+        });
+
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('show'); }
+            });
+        }, { threshold: 0.1 });
+
+        function triggerAnimations() {
+            const animElements = document.querySelectorAll('.scroll-anim');
+            animElements.forEach(el => {
+                el.classList.remove('show');
+                observer.observe(el);
+            });
+        }
+
+        // Initial Trigger
+        setTimeout(triggerAnimations, 100);
+    </script>
+</body>
+
+</html>

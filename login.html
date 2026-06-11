@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly </title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <style>
+        .back-home {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-home:hover {
+            color: #b68d40;
+            transform: translateX(-5px);
+        }
+
+
+        @media (max-width: 500px) {
+            .back-home {
+                /* top: 20px; */
+                /* left: 20px; */
+                font-size: 14px;
+            }
+        }
+
+        input[type="password"]::-ms-reveal,
+        input[type="password"]::-ms-clear {
+            display: none;
+        }
+
+        input[type="password"]::-webkit-credentials-auto-fill-button {
+            visibility: hidden;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <a href="index.html" class="back-home">
+        <i class="fa-solid fa-arrow-left"></i> Back to Home
+    </a>
+
+    <div class="auth-container">
+        <div class="auth-card">
+
+            <div class="logo">
+                <img src="./asset/logo (2).webp" alt="Company Logo" class="logo-img">
+            </div>
+
+            <div class="tab-buttons">
+                <button class="active" id="loginBtn">Login</button>
+                <button id="signupBtn">Sign Up</button>
+            </div>
+
+            <form id="loginForm">
+                <h2>Welcome Back 👋</h2>
+                <p class="subtitle">Sign in to access your dashboard</p>
+
+                <select id="loginRole" required>
+                    <option value="">Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+
+                <input type="email" id="loginEmail" placeholder="Email Address">
+                <span class="error-msg" id="loginEmailError"></span>
+
+                <div class="password-box">
+                    <input type="password" id="loginPassword" placeholder="Password">
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+                <span class="error-msg" id="loginPasswordError"></span>
+
+                <div class="options">
+                    <label class="remember-me">
+                        <input type="checkbox"> Remember Me
+                    </label>
+                    <a href="404.html">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="main-btn">Login</button>
+
+                <div class="divider">OR</div>
+
+                <div class="social-icons">
+                    <a href="404.html"><i class="fab fa-google"></i></a>
+                    <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404.html"><i class="fab fa-apple"></i></a>
+                </div>
+
+                <p class="bottom-text">
+                    Don't have an account? <span id="showSignup">Create Account</span>
+                </p>
+            </form>
+
+
+            <form id="signupForm" class="hidden">
+                <h2>Create Account</h2>
+                <p class="subtitle">Create your account</p>
+
+                <select id="signupRole" required>
+                    <option value="">Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+
+                <input type="text" id="signupName" placeholder="Full Name">
+                <span class="error-msg" id="signupNameError"></span>
+
+                <input type="email" id="signupEmail" placeholder="Email Address">
+                <span class="error-msg" id="signupEmailError"></span>
+
+                
+
+                <div class="password-box">
+                    <input type="password" id="signupPassword" class="password" placeholder="Password">
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+                <span class="error-msg" id="signupPasswordError"></span>
+
+                <div class="password-box">
+                    <input type="password" id="signupConfirmPassword" class="password" placeholder="Confirm Password">
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+                <span class="error-msg" id="signupConfirmError"></span>
+
+                <button type="submit" class="main-btn">Create Account</button>
+
+                <div class="divider">OR</div>
+
+                <div class="social-icons">
+                    <a href="404.html"><i class="fab fa-google"></i></a>
+                    <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404.html"><i class="fab fa-apple"></i></a>
+                </div>
+
+                <p class="bottom-text">
+                    Already have an account? <span id="showLogin">Login</span>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

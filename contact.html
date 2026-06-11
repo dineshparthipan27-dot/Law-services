@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact Us | LegalConnect Law Firm</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    
+</head>
+
+<body>
+
+    <!-- 1. Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="./asset/logo (2).webp" alt="Company Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/150x45?text=LegalConnect'">
+        </div>
+        
+        <div class="nav-links">
+         <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html" class="active">Contact Us</a>
+        </div>
+        
+        <a href="index.html" class="btn">
+            <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
+        </a>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <header class="hero scroll-anim">
+        <h1>We Are Here to <span>Protect You</span>.</h1>
+        <p>Whether you need immediate legal assistance or want to schedule a consultation, our team is ready to listen and act. Reach out to us today.</p>
+    </header>
+
+    <!-- 2. Quick Contact Info Cards -->
+    <section class="info-grid scroll-anim">
+        <div class="info-card">
+            <i class="fa-solid fa-phone-volume"></i>
+            <h3>Call Us</h3>
+            <p>Mon - Sat (9:00 AM - 7:00 PM)</p>
+            <a href="tel:+919876543210">+91 98765 43210</a>
+        </div>
+        <div class="info-card">
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <h3>Email Us</h3>
+            <p>Expect a reply within 24 hours</p>
+            <a href="mailto:contact@legalconnect.in">contact@legalconnect.in</a>
+        </div>
+        <div class="info-card">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Working Hours</h3>
+            <p>Office Consultations by Appointment</p>
+            <span style="color: var(--text-dark); font-weight: 700;">Mon - Sat: 10:00 AM - 6:00 PM</span>
+        </div>
+    </section>
+
+    <!-- 3. Secure Contact Form -->
+    <section class="section-container bg-light">
+        <div class="section-header scroll-anim">
+            <h2>Send Us a Secure Message</h2>
+            <div class="divider"></div>
+            <p>Briefly describe your legal issue. Your information is strictly confidential and protected by attorney-client privilege.</p>
+        </div>
+
+        <div class="contact-wrap scroll-anim">
+            <div class="contact-info-side">
+                <h3>Why Contact Us?</h3>
+                <p>Legal issues are time-sensitive. Delaying action can often limit your legal options. Reach out to us for:</p>
+                <ul style="list-style: none; margin-top: 20px;">
+                    <li style="margin-bottom: 15px; display: flex; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--primary-color);"></i> Immediate Case Evaluation</li>
+                    <li style="margin-bottom: 15px; display: flex; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--primary-color);"></i> Honest Legal Opinions</li>
+                    <li style="margin-bottom: 15px; display: flex; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--primary-color);"></i> Transparent Fee Structures</li>
+                    <li style="margin-bottom: 15px; display: flex; gap: 10px;"><i class="fa-solid fa-check" style="color: var(--primary-color);"></i> Dedicated Advocate Allocation</li>
+                </ul>
+            </div>
+            
+            <div class="contact-form-side">
+                <form onsubmit="event.preventDefault(); window.location.href = '404.html'">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Full Name *</label>
+                            <input type="text" placeholder="John Doe" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" placeholder="+91 98765 43210" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="john@example.com">
+                        </div>
+                        <div class="input-group">
+                            <label>Legal Category *</label>
+                            <select required>
+                                <option value="" disabled selected>Select an option...</option>
+                                <option>Corporate / Business</option>
+                                <option>Real Estate & Property</option>
+                                <option>Family / Divorce</option>
+                                <option>Criminal Defense</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Briefly Describe Your Issue *</label>
+                        <textarea rows="5" placeholder="Please provide a short summary of your legal matter..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; justify-content: center; padding: 15px; font-size: 16px;">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Office Locations & Maps -->
+    <section class="section-container bg-white">
+        <div class="section-header scroll-anim">
+            <h2>Our Offices</h2>
+            <div class="divider"></div>
+            <p>Visit us at our head office or branch. Prior appointment is highly recommended.</p>
+        </div>
+
+        <div class="location-grid scroll-anim">
+            <div class="location-card">
+                <div class="map-placeholder">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <div class="location-details">
+                    <h3>Headquarters (Chennai)</h3>
+                    <div class="loc-info-line">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>123, Legal Tower, High Court Road,<br>George Town, Chennai - 600104</p>
+                    </div>
+                    <div class="loc-info-line">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>+91 44 2345 6789</p>
+                    </div>
+                    <div class="loc-info-line">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p>hq@legalconnect.in</p>
+                    </div>
+                    <a href="404.html" class="btn btn-outline" style="width: 100%; justify-content: center; margin-top: 10px;">Get Directions</a>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="map-placeholder">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <div class="location-details">
+                    <h3>Branch Office (Coimbatore)</h3>
+                    <div class="loc-info-line">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>45, Justice Avenue, Race Course,<br>Coimbatore - 641018</p>
+                    </div>
+                    <div class="loc-info-line">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>+91 422 234 5678</p>
+                    </div>
+                    <div class="loc-info-line">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p>cbe@legalconnect.in</p>
+                    </div>
+                    <a href="404.html" class="btn btn-outline" style="width: 100%; justify-content: center; margin-top: 10px;">Get Directions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 24/7 Emergency Legal Help -->
+    <div class="emergency-banner scroll-anim">
+        <i class="fa-solid fa-triangle-exclamation bg-icon"></i>
+        <h2><i class="fa-solid fa-phone-volume"></i> 24/7 Emergency Legal Helpline</h2>
+        <p>Arrested? Detained? Immediate Bail required? Our criminal defense team is available 24/7 for urgent legal interventions and representation at police stations or magistrate courts.</p>
+        <a href="404.html" class="emergency-btn">Call Emergency Number: +91 99999 99999</a>
+    </div>
+
+    <!-- 6. What Happens Next? (Process) -->
+    <section class="section-container bg-light">
+        <div class="section-header scroll-anim">
+            <h2>What Happens After You Contact Us?</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="timeline-flex scroll-anim">
+            <div class="timeline-step">
+                <div class="step-icon"><i class="fa-solid fa-envelope-circle-check"></i></div>
+                <h4>1. We Review</h4>
+                <p>Our intake team reviews your submitted details confidentially within 2-4 hours.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="step-icon"><i class="fa-solid fa-headset"></i></div>
+                <h4>2. We Call You</h4>
+                <p>A legal associate will call you to gather missing facts and understand your goals.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="step-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h4>3. Consultation</h4>
+                <p>An in-person or video consultation is scheduled with a Senior Advocate.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Connect on Social Media -->
+    <section class="section-container bg-white" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="section-header scroll-anim" style="margin-bottom: 30px;">
+            <h2>Follow Us Online</h2>
+        </div>
+        <div class="social-grid scroll-anim">
+            <a href="404.html" class="social-card">
+                <i class="fa-brands fa-linkedin" style="color: #0077b5;"></i> <span>LinkedIn</span>
+            </a>
+            <a href="404.html" class="social-card">
+                <i class="fa-brands fa-x-twitter" style="color: #1da1f2;"></i> <span>Twitter / X</span>
+            </a>
+            <a href="404.html" class="social-card">
+                <i class="fa-brands fa-facebook" style="color: #1877f2;"></i> <span>Facebook</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 8. FAQ Section -->
+    <section class="section-container bg-light">
+        <div class="section-header scroll-anim">
+            <h2>Contact & Consultation FAQs</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="faq-grid scroll-anim">
+            <div class="faq-card">
+                <h4><i class="fa-solid fa-circle-question"></i> Is the initial phone call free?</h4>
+                <p>Yes, the brief initial phone call (10-15 minutes) with our intake team to understand your case is completely free.</p>
+            </div>
+            <div class="faq-card">
+                <h4><i class="fa-solid fa-circle-question"></i> Do I need to bring documents to my first meeting?</h4>
+                <p>Yes, please bring any legal notices, contracts, property deeds, or relevant correspondence. This helps our advocates give you precise advice immediately.</p>
+            </div>
+            <div class="faq-card">
+                <h4><i class="fa-solid fa-circle-question"></i> Do you offer online video consultations?</h4>
+                <p>Absolutely. We offer secure video consultations via Zoom or Google Meet for clients residing out of station or abroad (NRIs).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 LegalConnect Law Firm. All rights reserved. Justice Delivered.</p>
+    </footer>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const animElements = document.querySelectorAll('.scroll-anim');
+        animElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
