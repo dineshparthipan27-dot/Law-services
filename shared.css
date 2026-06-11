@@ -80,8 +80,8 @@
        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
    }
 
-   .login-btn:hover{
-    color: #b68d40;
+   .login-btn:hover {
+       color: #b68d40;
    }
 
    .consult-btn {
@@ -145,4 +145,44 @@
        .nav-right.active {
            left: 0;
        }
+   }
+
+   .btn {
+       background: var(--primary-color);
+       color: white;
+       border: none;
+       border-radius: 8px;
+       font-weight: 600;
+       text-decoration: none;
+       display: inline-flex;
+       align-items: center;
+       gap: 8px;
+       padding: 10px 20px;
+       font-size: 15px;
+       transition: 0.3s;
+       white-space: nowrap;
+       cursor: pointer;
+   }
+
+   .btn:hover {
+       background: var(--primary-dark);
+       transform: translateY(-2px);
+   }
+
+   .btn-primary,
+   .btn-secondary {
+       text-decoration: none;
+       padding: 14px 28px;
+       border-radius: 8px;
+       font-weight: 600;
+   }
+
+   .btn-primary {
+       background: #b68d40;
+       color: #fff;
+   }
+
+   .btn-secondary {
+       border: 2px solid #b68d40;
+       color: #d4af37;
    }
