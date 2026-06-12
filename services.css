@@ -522,13 +522,7 @@ body {
     margin-right: auto;
 }
 
-footer {
-    background: #0f172a;
-    color: #94a3b8;
-    text-align: center;
-    padding: 30px;
-    font-size: 14px;
-}
+
 
 .scroll-anim {
     opacity: 0;

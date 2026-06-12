@@ -142,7 +142,7 @@
  .featured-img {
      flex: 1;
      min-height: 350px;
-     background: url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1000') center/cover;
+     background: url(asset/s1.webp) center/cover;
  }
 
  .featured-content {
@@ -454,13 +454,7 @@
      background: var(--primary-dark);
  }
 
- footer {
-     background: #0f172a;
-     color: #94a3b8;
-     text-align: center;
-     padding: 30px;
-     font-size: 14px;
- }
+  
 
  .scroll-anim {
      opacity: 0;
