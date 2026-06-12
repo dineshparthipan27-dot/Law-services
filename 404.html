@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>404 - Page Not Found | LegalConnect</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -40,7 +40,7 @@
             position: relative;
         }
 
-        /* Background Decorative Element */
+       
         .bg-icon {
             position: absolute;
             font-size: 50vh;
@@ -50,7 +50,7 @@
             pointer-events: none;
         }
 
-        /* 404 Container */
+       
         .error-container {
             background: var(--card-bg);
             padding: 60px 50px;
@@ -70,13 +70,14 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* Icon Animation */
+       
         .error-icon-wrapper {
             width: 100px;
             height: 100px;
@@ -91,9 +92,17 @@
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(182, 141, 64, 0.4); }
-            70% { box-shadow: 0 0 0 20px rgba(182, 141, 64, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(182, 141, 64, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(182, 141, 64, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(182, 141, 64, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(182, 141, 64, 0);
+            }
         }
 
         .error-icon-wrapper i {
@@ -101,7 +110,7 @@
             color: var(--primary-color);
         }
 
-        /* Text Styles */
+       
         .error-code {
             font-size: 90px;
             font-weight: 900;
@@ -126,7 +135,7 @@
             margin-bottom: 35px;
         }
 
-        /* Buttons */
+        
         .action-buttons {
             display: flex;
             gap: 15px;
@@ -171,36 +180,38 @@
             transform: translateY(-3px);
         }
 
-        /* ================= STRICT MOBILE RESPONSIVENESS ================= */
-        
-        /* Tablets (max-width: 768px) */
+       
         @media (max-width: 768px) {
             .error-container {
                 padding: 50px 30px;
             }
+
             .error-code {
                 font-size: 80px;
             }
+
             .error-title {
                 font-size: 24px;
             }
+
             .bg-icon {
                 font-size: 40vh;
             }
         }
 
-        /* Mobile Phones (max-width: 480px) */
+       
         @media (max-width: 480px) {
             .error-container {
                 padding: 40px 20px;
                 border-radius: 16px;
             }
-            
+
             .error-icon-wrapper {
                 width: 80px;
                 height: 80px;
                 margin-bottom: 20px;
             }
+
             .error-icon-wrapper i {
                 font-size: 30px;
             }
@@ -209,17 +220,17 @@
                 font-size: 65px;
                 text-shadow: 3px 3px 0px var(--primary-light);
             }
-            
+
             .error-title {
                 font-size: 22px;
             }
-            
+
             .error-desc {
                 font-size: 14px;
                 margin-bottom: 25px;
             }
 
-            /* Stack buttons vertically on small screens */
+          
             .action-buttons {
                 flex-direction: column;
                 gap: 12px;
@@ -236,30 +247,29 @@
 
 <body>
 
-    <!-- Background Decorative Icon -->
+    
     <i class="fa-solid fa-gavel bg-icon"></i>
 
-    <!-- 404 Content Container -->
     <div class="error-container">
-        
+
         <div class="error-icon-wrapper">
             <i class="fa-solid fa-file-circle-xmark"></i>
         </div>
 
         <h1 class="error-code">404</h1>
         <h2 class="error-title">Objection! Page Not Found</h2>
-        
+
         <p class="error-desc">
-            The legal document or page you are looking for is missing from our records. It might have been moved, deleted, or never existed in the first place.
+            The legal document or page you are looking for is missing from our records. It might have been moved,
+            deleted, or never existed in the first place.
         </p>
 
         <div class="action-buttons">
-            <!-- Go Back Button (Uses JS to return to previous page) -->
+            
             <button class="btn btn-secondary" onclick="window.history.back();">
                 <i class="fa-solid fa-arrow-left"></i> Go Back
             </button>
-            
-            <!-- Home Button -->
+
             <a href="index.html" class="btn btn-primary">
                 <i class="fa-solid fa-house"></i> Return to Home
             </a>

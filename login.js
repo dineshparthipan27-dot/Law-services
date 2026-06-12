@@ -40,8 +40,6 @@ document.querySelectorAll(".toggle-password").forEach(icon => {
 
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-// Utility function to show/hide errors
 function showError(elementId, message) {
     const errorElement = document.getElementById(elementId);
     errorElement.innerText = message;
@@ -129,7 +127,6 @@ signupForm.addEventListener("submit", (e) => {
 
     
     if (isValid) {
-        // alert(`Account created successfully as ${role}!`);
-        showLoginForm(); // Redirect back to login after signup
+        showLoginForm();
     }
 });

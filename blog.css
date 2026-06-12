@@ -1,5 +1,5 @@
  :root {
-     /* Established Law Firm Theme Colors */
+     
      --primary-color: #b68d40;
      --primary-light: #fdf8eb;
      --primary-dark: #8c6b32;
@@ -24,8 +24,8 @@
      line-height: 1.6;
      overflow-x: hidden;
  }
+
  
- /* ================= Section Containers ================= */
  .section-container {
      padding: 60px 5%;
      max-width: 1200px;
@@ -75,7 +75,7 @@
      text-decoration: underline;
  }
 
- /* ================= 1. Hero & Search Section ================= */
+
  .hero {
      padding: 100px 5%;
      text-align: center;
@@ -130,7 +130,6 @@
      background: var(--primary-dark);
  }
 
- /* ================= 2. Featured Post Section ================= */
  .featured-post {
      display: flex;
      background: var(--card-bg);
@@ -202,7 +201,6 @@
      color: var(--text-muted);
  }
 
- /* ================= 3. Categories Filter ================= */
  .categories-wrap {
      display: flex;
      gap: 15px;
@@ -229,7 +227,7 @@
      border-color: var(--primary-color);
  }
 
- /* ================= 4. Latest Articles Grid ================= */
+
  .blog-grid {
      display: grid;
      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -298,7 +296,6 @@
      text-decoration: underline;
  }
 
- /* ================= 5. Video Insights ================= */
  .video-grid {
      display: grid;
      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -362,7 +359,6 @@
      margin-bottom: 5px;
  }
 
- /* ================= 6. Most Popular List ================= */
  .popular-grid {
      display: grid;
      grid-template-columns: 1fr 1fr;
@@ -403,7 +399,7 @@
      color: var(--text-muted);
  }
 
- /* ================= 7. Newsletter Section ================= */
+
  .newsletter-section {
      background: var(--text-dark);
      color: white;
@@ -458,7 +454,6 @@
      background: var(--primary-dark);
  }
 
- /* ================= 8. Footer ================= */
  footer {
      background: #0f172a;
      color: #94a3b8;
@@ -467,7 +462,6 @@
      font-size: 14px;
  }
 
- /* Scroll Animations */
  .scroll-anim {
      opacity: 0;
      transform: translateY(30px);
@@ -479,7 +473,6 @@
      transform: translateY(0);
  }
 
- /* ================= Mobile Responsiveness ================= */
  @media (max-width: 992px) {
      .featured-post {
          flex-direction: column;
@@ -556,7 +549,6 @@
          display: none;
      }
 
-     /* Hide links on mobile */
      .navbar .btn {
          padding: 8px 12px !important;
          font-size: 14px !important;
@@ -610,5 +602,3 @@
          font-size: 26px;
      }
  }
-
- 

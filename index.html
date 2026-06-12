@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Law Services Navbar</title>
+    <title>Law Services</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="shared.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -764,8 +764,6 @@
 
         <div class="footer-container">
 
-            <!-- Company Info -->
-
             <div class="footer-column">
 
                 <div class="logo-container">
@@ -800,7 +798,6 @@
 
             </div>
 
-            <!-- Quick Links -->
 
             <div class="footer-column">
 
@@ -816,7 +813,6 @@
 
             </div>
 
-            <!-- Services -->
 
             <div class="footer-column">
 
@@ -832,7 +828,6 @@
 
             </div>
 
-            <!-- Contact -->
 
             <div class="footer-column">
 
@@ -857,7 +852,6 @@
 
         </div>
 
-        <!-- Bottom Footer -->
 
         <div class="footer-bottom">
 
@@ -898,8 +892,6 @@
 
             let isValid = true;
 
-            // Name
-
             if (fullName.value.trim() === "") {
 
                 fullName.classList.add("error");
@@ -909,7 +901,6 @@
                 isValid = false;
             }
 
-            // Email
 
             const emailPattern =
                 /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -931,7 +922,6 @@
                 isValid = false;
             }
 
-            // Phone
 
             const phonePattern = /^[0-9]{10}$/;
 
@@ -952,7 +942,6 @@
                 isValid = false;
             }
 
-            // Message
 
             if (message.value.trim() === "") {
 

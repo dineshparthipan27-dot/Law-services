@@ -25,7 +25,6 @@
             });
         });
 
-        // Future JavaScript code goes here
 
 console.log("Law Services Website Loaded Successfully");
 

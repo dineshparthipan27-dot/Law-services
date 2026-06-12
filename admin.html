@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Law Firm Admin Dashboard</title>
+    <title> Admin</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         :root {
-            /* User Requested Theme Colors */
             --primary-color: #b68d40;
             --primary-light: #fdf8eb;
             --primary-dark: #8c6b32;
@@ -43,7 +42,6 @@
             width: 100%;
         }
 
-        /* Sidebar Styles */
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
@@ -81,7 +79,7 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo-img{
+        .logo-img {
             width: 150px;
             height: auto;
         }
@@ -142,7 +140,7 @@
             border-left: 4px solid #dc2626;
         }
 
-        /* Main Content */
+        
         .main-content {
             flex: 1;
             display: flex;
@@ -213,7 +211,7 @@
             color: var(--primary-color);
         }
 
-        /* Views */
+        
         .view-section {
             display: none;
             padding: 30px;
@@ -257,7 +255,7 @@
             transform: translateY(0);
         }
 
-        /* Stats Grid */
+       
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -297,7 +295,7 @@
             font-weight: 500;
         }
 
-        /* Common Elements */
+       
         .content-box {
             background: var(--card-bg);
             border-radius: 12px;
@@ -325,7 +323,7 @@
             width: 100%;
         }
 
-        /* Tables */
+       
         .table-container {
             width: 100%;
             overflow-x: auto;
@@ -381,7 +379,7 @@
             color: #f44336;
         }
 
-        /* Beautiful Case Directory Styles */
+       
         .case-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -493,7 +491,7 @@
             background: #fafafa;
         }
 
-        /* Buttons & Forms */
+       
         .action-btn {
             padding: 8px 15px;
             border: none;
@@ -578,7 +576,7 @@
             margin-top: 5px;
         }
 
-        /* Lists & Timelines */
+        
         .simple-list {
             list-style: none;
             margin-top: 10px;
@@ -632,9 +630,9 @@
         }
 
 
-    
 
-        /* Media Queries */
+
+       
         @media (max-width: 992px) {
             .sidebar {
                 transform: translateX(-100%);
@@ -661,6 +659,10 @@
             .dashboard-bottom,
             .two-col-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .sidebar-bottom {
+                display: block;
             }
         }
 
@@ -700,7 +702,8 @@
                 height: 250px;
             }
         }
-        a{
+
+        a {
             text-decoration: none;
         }
     </style>
@@ -710,7 +713,7 @@
     <div class="dashboard-container">
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-        <!-- Sidebar -->
+       
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-top">
                 <div class="sidebar-header">
@@ -739,7 +742,7 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
+        
         <main class="main-content">
             <header class="top-header">
                 <div class="header-left">
@@ -763,9 +766,7 @@
                 </div>
             </header>
 
-            <!-- ============================================== -->
-            <!-- 1. DASHBOARD VIEW -->
-            <!-- ============================================== -->
+        
             <div id="dashboard-view" class="view-section active">
                 <section class="stats-grid scroll-anim">
                     <div class="stat-card">
@@ -805,12 +806,9 @@
                 </section>
             </div>
 
-            <!-- ============================================== -->
-            <!-- 2. FULL CASE MANAGEMENT VIEW -->
-            <!-- ============================================== -->
             <div id="case-view" class="view-section">
 
-                <!-- Stats Grid -->
+              
                 <section class="stats-grid scroll-anim">
                     <div class="stat-card">
                         <div class="stat-icon" style="background: var(--primary-light); color: var(--primary-color);">
@@ -842,7 +840,7 @@
                 </section>
 
                 <div class="two-col-grid">
-                    <!-- Add Case Form -->
+                    
                     <section class="content-box scroll-anim">
                         <h2 class="section-title">Quick Add Case</h2>
                         <form id="caseForm">
@@ -872,7 +870,7 @@
                         </form>
                     </section>
 
-                    <!-- Urgent Deadlines -->
+                    
                     <section class="content-box scroll-anim">
                         <h2 class="section-title">Urgent Deadlines</h2>
                         <ul class="simple-list">
@@ -922,12 +920,10 @@
 
             </div>
 
-            <!-- ============================================== -->
-            <!-- 3. FULL APPOINTMENTS VIEW -->
-            <!-- ============================================== -->
+           
             <div id="appointment-view" class="view-section">
 
-                <!-- Stats -->
+                
                 <section class="stats-grid scroll-anim">
                     <div class="stat-card">
                         <div class="stat-icon" style="background: #fff3e0; color: #ff9800;">
@@ -959,7 +955,7 @@
                 </section>
 
                 <div class="two-col-grid">
-                    <!-- Schedule Form -->
+                    
                     <section class="content-box scroll-anim">
                         <h2 class="section-title">Schedule Appointment</h2>
                         <form id="appointmentForm">
@@ -989,7 +985,7 @@
                         </form>
                     </section>
 
-                    <!-- Today's Timeline -->
+                   
                     <section class="content-box scroll-anim">
                         <h2 class="section-title">Today's Schedule (Live)</h2>
                         <div class="timeline">
@@ -1014,7 +1010,7 @@
                     </section>
                 </div>
 
-                <!-- Appointment Data Table -->
+               
                 <section class="content-box scroll-anim">
                     <h2 class="section-title">All Appointments Schedule</h2>
                     <div class="table-container">
@@ -1039,10 +1035,10 @@
                                     <td><span class="status pending">Upcoming</span></td>
                                     <td>
                                         <div style="display:flex; gap:8px;">
-                                            
+
                                             <a href="404.html" class="action-btn view-btn" style="padding: 6px 12px;"><i
                                                     class="fa-solid fa-link"></i> Join</a>
-                                    
+
                                             <a href="404.html" class="action-btn edit-btn" style="padding: 6px 12px;"><i
                                                     class="fa-solid fa-clock-rotate-left"></i></a>
                                         </div>
@@ -1082,11 +1078,8 @@
                 </section>
             </div>
 
-            <!-- ============================================== -->
-            <!-- 4. FULL CLIENT MANAGEMENT VIEW -->
-            <!-- ============================================== -->
             <div id="client-view" class="view-section">
-                <!-- Shortened Client Stats for completeness -->
+           
                 <section class="stats-grid scroll-anim">
                     <div class="stat-card">
                         <div class="stat-icon" style="background: #e3f2fd; color: #2196f3;">
@@ -1170,7 +1163,7 @@
         const welcomeEl = document.querySelector(".welcome-name");
         if (welcomeEl) { welcomeEl.textContent = `| Hi, ${formattedName} 👋`; }
 
-        
+
 
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('sidebarOverlay');
@@ -1211,20 +1204,20 @@
 
         });
 
-        // Form Submit Preventers
+        
         document.getElementById("caseForm")?.addEventListener("submit", (e) => {
             e.preventDefault();
-             window.location.href = "404.html";
+            window.location.href = "404.html";
             e.target.reset();
         });
 
         document.getElementById("appointmentForm")?.addEventListener("submit", (e) => {
             e.preventDefault();
-             window.location.href = "404.html";
+            window.location.href = "404.html";
             e.target.reset();
         });
 
-        // Chart Initialization
+        
         const ctx = document.getElementById('revenueChart').getContext('2d');
         const revenueChart = new Chart(ctx, {
             type: 'line',

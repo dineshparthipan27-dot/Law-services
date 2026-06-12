@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Client Portal - Law Firm</title>
+    <title>User</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         :root {
-            /* Theme Colors */
+            
             --primary-color: #b68d40;
             --primary-light: #fdf8eb;
             --primary-dark: #8c6b32;
@@ -43,7 +43,7 @@
             width: 100%;
         }
 
-        /* Sidebar Styles */
+      
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
@@ -151,7 +151,7 @@
             border-left: 4px solid #dc2626;
         }
 
-        /* Main Content */
+
         .main-content {
             flex: 1;
             display: flex;
@@ -222,7 +222,7 @@
             color: var(--primary-color);
         }
 
-        /* Views & Animations */
+
         .view-section {
             display: none;
             padding: 30px;
@@ -266,7 +266,6 @@
             transform: translateY(0);
         }
 
-        /* Grids & Cards */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -333,7 +332,6 @@
             gap: 20px;
         }
 
-        /* Tables */
         .table-container {
             width: 100%;
             overflow-x: auto;
@@ -365,7 +363,7 @@
             background-color: #fafaf9;
         }
 
-        /* Status Badges */
+    
         .status {
             padding: 5px 12px;
             border-radius: 20px;
@@ -398,7 +396,6 @@
             border: 1px solid #bbdefb;
         }
 
-        /* Case Progress Bar */
         .case-progress {
             margin-top: 20px;
             padding-top: 20px;
@@ -472,7 +469,6 @@
             color: var(--primary-color);
         }
 
-        /* Documents / Folders */
         .folder-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -513,7 +509,6 @@
             color: var(--text-muted);
         }
 
-        /* Buttons & Inputs */
         .action-btn {
             padding: 8px 15px;
             border: none;
@@ -594,7 +589,6 @@
             box-shadow: 0 0 0 3px var(--primary-light);
         }
 
-        /* Lists & Timelines */
         .simple-list {
             list-style: none;
             margin-top: 10px;
@@ -661,7 +655,6 @@
             display: inline-block;
         }
 
-        /* Responsive */
         @media (max-width: 992px) {
             .sidebar {
                 transform: translateX(-100%);
@@ -688,6 +681,10 @@
             .two-col-grid,
             .three-col-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .sidebar-bottom {
+                display: block;
             }
         }
 
@@ -741,7 +738,6 @@
     <div class="dashboard-container">
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-        <!-- Client Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-top">
                 <div class="sidebar-header">
@@ -772,7 +768,6 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
         <main class="main-content">
             <header class="top-header">
                 <div class="header-left">
@@ -796,9 +791,6 @@
                 </div>
             </header>
 
-            <!-- ============================================== -->
-            <!-- 1. HOME / DASHBOARD VIEW -->
-            <!-- ============================================== -->
             <div id="dashboard-view" class="view-section active">
                 <section class="stats-grid scroll-anim">
                     <div class="stat-card">
@@ -865,7 +857,6 @@
                             Activity</a>
                     </section>
 
-                    <!-- To-Do / Action Required -->
                     <section class="content-box scroll-anim">
                         <h2 class="section-title">Action Required</h2>
                         <ul class="simple-list">
@@ -907,9 +898,7 @@
                 </div>
             </div>
 
-            <!-- ============================================== -->
-            <!-- 2. MY CASES VIEW -->
-            <!-- ============================================== -->
+
             <div id="cases-view" class="view-section">
                 <section class="content-box scroll-anim"
                     style="background: transparent; border: none; padding: 0; box-shadow: none;">
@@ -919,7 +908,7 @@
                             Case</a>
                     </div>
 
-                    <!-- Case 1 with Progress Tracking -->
+            
                     <div class="content-box scroll-anim" style="margin-bottom: 20px;">
                         <div
                             style="display:flex; justify-content:space-between; flex-wrap: wrap; gap: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 15px;">
@@ -935,7 +924,7 @@
                             <div><span class="status info">Hearing Stage</span></div>
                         </div>
 
-                        <!-- Progress Tracker -->
+                      
                         <div class="case-progress">
                             <p style="font-size: 14px; font-weight: 600; margin-bottom: 15px;">Case Progress Tracking:
                             </p>
@@ -976,7 +965,7 @@
                         </div>
                     </div>
 
-                    <!-- Case 2 -->
+                 
                     <div class="content-box scroll-anim">
                         <div
                             style="display:flex; justify-content:space-between; flex-wrap: wrap; gap: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 15px;">
@@ -1010,9 +999,7 @@
                 </section>
             </div>
 
-            <!-- ============================================== -->
-            <!-- 3. APPOINTMENTS VIEW -->
-            <!-- ============================================== -->
+     
             <div id="appointments-view" class="view-section">
                 <div class="two-col-grid">
                     <!-- Book Appointment Form -->
@@ -1071,11 +1058,10 @@
                         </form>
                     </section>
 
-                    <!-- Scheduled Appointments List -->
+        
                     <section class="content-box scroll-anim" style="display: flex; flex-direction: column;">
                         <h2 class="section-title">My Schedule</h2>
 
-                        <!-- Upcoming Tab -->
                         <div style="flex-grow: 1;">
                             <h4
                                 style="font-size: 14px; color: var(--primary-dark); margin-bottom: 10px; border-bottom: 1px solid var(--border-color); padding-bottom: 5px;">
@@ -1116,7 +1102,6 @@
                             </ul>
                         </div>
 
-                        <!-- Past Tab -->
                         <div style="margin-top: 20px;">
                             <h4
                                 style="font-size: 14px; color: var(--text-muted); margin-bottom: 10px; border-bottom: 1px solid var(--border-color); padding-bottom: 5px;">
@@ -1136,9 +1121,6 @@
                 </div>
             </div>
 
-            <!-- ============================================== -->
-            <!-- 4. DOCUMENTS VAULT VIEW -->
-            <!-- ============================================== -->
             <div id="documents-view" class="view-section">
                 <section class="content-box scroll-anim">
                     <div
@@ -1154,7 +1136,6 @@
                         </div>
                     </div>
 
-                    <!-- Folders -->
                     <h3 style="font-size: 15px; color: var(--text-muted); margin-bottom: 15px;">Folders</h3>
                     <div class="folder-grid" style="margin-bottom: 30px;">
                         <div class="folder-card">
@@ -1180,7 +1161,6 @@
                         </div>
                     </div>
 
-                    <!-- Recent Files Table -->
                     <h3 style="font-size: 15px; color: var(--text-muted); margin-bottom: 15px;">Recent Files</h3>
                     <div class="table-container">
                         <table>
@@ -1242,9 +1222,6 @@
                 </section>
             </div>
 
-            <!-- ============================================== -->
-            <!-- 5. BILLING & INVOICES VIEW -->
-            <!-- ============================================== -->
             <div id="invoices-view" class="view-section">
 
                 <!-- Billing Summary -->
@@ -1335,8 +1312,10 @@
         </main>
     </div>
 
+
+
     <script>
-        // Local Storage for User Name simulation
+    
         const emailValue = localStorage.getItem("UserMail");
         const email = emailValue || "user@example.com";
 
@@ -1346,7 +1325,6 @@
         const welcomeEl = document.querySelector(".welcome-name");
         if (welcomeEl) { welcomeEl.textContent = `| Welcome, ${formattedName} 👋`; }
 
-        // Sidebar Toggle Logic
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('sidebarOverlay');
         const openSidebarBtn = document.getElementById('openSidebar');
@@ -1359,7 +1337,6 @@
         closeSidebarBtn.addEventListener('click', closeSidebar);
         overlay.addEventListener('click', closeSidebar);
 
-        // Navigation Logic
         const menuLinks = document.querySelectorAll('.sidebar-menu .menu-link');
         const views = document.querySelectorAll('.view-section');
         const pageTitle = document.getElementById('page-title');
@@ -1380,7 +1357,6 @@
             });
         });
 
-        // Logout
         document.getElementById('logoutBtn').addEventListener('click', (e) => {
             e.preventDefault();
             localStorage.removeItem("ClientMail");
@@ -1388,7 +1364,6 @@
 
         });
 
-        // Form Mocks
         document.getElementById("appointmentForm")?.addEventListener("submit", (e) => {
             e.preventDefault();
             window.location.href = "404.html";
@@ -1401,7 +1376,6 @@
             }
         });
 
-        // Scroll Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) { entry.target.classList.add('show'); }
@@ -1416,7 +1390,6 @@
             });
         }
 
-        // Initial Trigger
         setTimeout(triggerAnimations, 100);
     </script>
 </body>

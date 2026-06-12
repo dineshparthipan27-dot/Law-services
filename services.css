@@ -1,5 +1,5 @@
 :root {
-    /* Established Law Firm Theme Colors */
+   
     --primary-color: #b68d40;
     --primary-light: #fdf8eb;
     --primary-dark: #8c6b32;
@@ -24,8 +24,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
- 
-/* ================= Section Containers ================= */
+
 .section-container {
     padding: 80px 5%;
     max-width: 1200px;
@@ -79,7 +78,6 @@ body {
     color: #cbd5e1;
 }
 
-/* ================= 1. Hero Section ================= */
 .hero {
     padding: 120px 5%;
     text-align: center;
@@ -105,7 +103,6 @@ body {
     margin: 0 auto 30px auto;
 }
 
-/* ================= 2. Our Approach ================= */
 .approach-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -142,7 +139,6 @@ body {
     color: var(--text-muted);
 }
 
-/* ================= 3. Core Practice Areas ================= */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -220,7 +216,6 @@ body {
     transition: 0.3s;
 }
 
-/* ================= 4. Specialized Services ================= */
 .specialized-flex {
     display: flex;
     flex-wrap: wrap;
@@ -281,7 +276,6 @@ body {
     color: var(--text-muted);
 }
 
-/* ================= 5. How We Work (Process) ================= */
 .process-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -329,7 +323,6 @@ body {
     padding: 0 10px;
 }
 
-/* Connecting line for process */
 .process-line {
     position: absolute;
     top: 30px;
@@ -341,7 +334,6 @@ body {
     opacity: 0.3;
 }
 
-/* ================= 6. Industries We Serve ================= */
 .industry-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -379,7 +371,6 @@ body {
     color: var(--text-dark);
 }
 
-/* ================= 7. Pricing Models ================= */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -455,7 +446,6 @@ body {
     margin: 0;
 }
 
-/* ================= 8. Case Studies ================= */
 .case-studies-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -514,7 +504,6 @@ body {
     color: var(--text-muted);
 }
 
-/* ================= 9. CTA Section ================= */
 .cta-section {
     text-align: center;
     padding: 80px 5%;
@@ -533,7 +522,6 @@ body {
     margin-right: auto;
 }
 
-/* Footer */
 footer {
     background: #0f172a;
     color: #94a3b8;
@@ -542,7 +530,6 @@ footer {
     font-size: 14px;
 }
 
-/* Scroll Animations */
 .scroll-anim {
     opacity: 0;
     transform: translateY(30px);
@@ -554,9 +541,6 @@ footer {
     transform: translateY(0);
 }
 
-/* ================= STRICT MOBILE RESPONSIVENESS ================= */
-
-/* Tablets (max-width: 992px) */
 @media (max-width: 992px) {
     .process-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -565,7 +549,7 @@ footer {
 
     .process-line {
         display: none;
-        /* Hide connecting line when stacked */
+     
     }
 
     .specialized-flex {
@@ -584,7 +568,6 @@ footer {
     }
 }
 
-/* Large Phones & Small Tablets (max-width: 768px) */
 @media (max-width: 768px) {
     .navbar {
         padding: 15px 5%;
@@ -615,7 +598,6 @@ footer {
         padding: 50px 5%;
     }
 
-    /* Make sure grids don't overflow */
     .services-grid,
     .pricing-grid,
     .case-studies-grid {
@@ -623,10 +605,8 @@ footer {
     }
 }
 
-/* Small Phones (max-width: 480px) */
 @media (max-width: 480px) {
 
-    /* Navbar Mobile Fix */
     .navbar {
         padding: 12px 5%;
         flex-wrap: wrap;
@@ -638,7 +618,6 @@ footer {
         max-height: 30px;
     }
 
-    /* Hide Nav Links on very small screens to save space, keep the Back button */
     .nav-links {
         display: none;
     }
@@ -648,7 +627,6 @@ footer {
         font-size: 13px !important;
     }
 
-    /* Hero adjustments */
     .hero {
         padding: 60px 5%;
     }
@@ -661,7 +639,6 @@ footer {
         font-size: 15px;
     }
 
-    /* Force all Grids into Single Column for Mobile */
     .approach-grid,
     .services-grid,
     .process-grid,
@@ -672,7 +649,6 @@ footer {
         gap: 25px;
     }
 
-    /* Adjust specialized section */
     .specialized-img i {
         font-size: 80px;
     }
@@ -687,7 +663,6 @@ footer {
         margin-top: 0;
     }
 
-    /* Adjust Process Steps */
     .step-number {
         width: 50px;
         height: 50px;
@@ -695,12 +670,10 @@ footer {
         margin-bottom: 10px;
     }
 
-    /* Adjust Pricing Card Padding */
     .pricing-card {
         padding: 30px 20px;
     }
 
-    /* Adjust CTA */
     .cta-section {
         padding: 50px 5%;
     }

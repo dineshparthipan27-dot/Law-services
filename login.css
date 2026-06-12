@@ -25,15 +25,17 @@ body {
     background: #fff;
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
 }
-.logo{
+
+.logo {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 27px;
 }
-.logo img{
+
+.logo img {
     width: 180px;
 }
 
@@ -83,7 +85,8 @@ form {
 }
 
 
-input, select {
+input,
+select {
     width: 100%;
     padding: 14px;
     border: 1.5px solid #e2e8f0;
@@ -93,7 +96,8 @@ input, select {
     transition: border-color 0.3s;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     border-color: #b68d40;
 }
 
@@ -221,7 +225,7 @@ input:focus, select:focus {
         width: 100%;
         padding: 25px;
     }
-    
+
     .logo {
         font-size: 28px;
         margin-top: 10px;

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Legal Blog & Insights | LegalConnect</title>
+    <title>Blog</title>
     <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="shared.css">
@@ -43,18 +43,14 @@
         <p>Stay informed with the latest updates on corporate law, property regulations, family disputes, and legal
             rights in India.</p>
 
-<form class="search-bar" id="searchForm">
-    <input 
-        type="text" 
-        id="searchInput" 
-        placeholder="Search for articles, cases, or legal terms..."
-    >
-    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-</form>
+        <form class="search-bar" id="searchForm">
+            <input type="text" id="searchInput" placeholder="Search for articles, cases, or legal terms...">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
 
-<div id="errorMessage" style="color: red; display: none; font-size: 0.85rem; margin-top: 5px;">
-    Please enter a legal term to search.
-</div>
+        <div id="errorMessage" style="color: red; display: none; font-size: 0.85rem; margin-top: 5px;">
+            Please enter a legal term to search.
+        </div>
     </header>
 
     <section class="section-container bg-light">
@@ -156,24 +152,21 @@
 
         <div class="video-grid scroll-anim">
             <a href="404.html" class="video-card">
-                <img src="asset/law1.webp"
-                    alt="Video thumbnail">
+                <img src="asset/law1.webp" alt="Video thumbnail">
                 <div class="play-btn"><i class="fa-solid fa-play"></i></div>
                 <div class="video-title">
                     <h4>Webinar: Legal Checklist for Startups</h4>
                 </div>
             </a>
             <div class="video-card">
-                <img src="asset/law2.webp"
-                    alt="Video thumbnail">
+                <img src="asset/law2.webp" alt="Video thumbnail">
                 <div class="play-btn"><i class="fa-solid fa-play"></i></div>
                 <div class="video-title">
                     <h4>Q&A: Employee Rights and Terminations</h4>
                 </div>
             </div>
             <div class="video-card">
-                <img src="asset/law4.webp"
-                    alt="Video thumbnail">
+                <img src="asset/law4.webp" alt="Video thumbnail">
                 <div class="play-btn"><i class="fa-solid fa-play"></i></div>
                 <div class="video-title">
                     <h4>Guide: Filing an FIR Correctly</h4>
@@ -258,20 +251,20 @@
         const animElements = document.querySelectorAll('.scroll-anim');
         animElements.forEach(el => observer.observe(el));
 
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
-        // Get the value and remove any extra whitespace
-        const searchInput = document.getElementById('searchInput').value.trim();
-        const errorMessage = document.getElementById('errorMessage');
+        document.getElementById('searchForm').addEventListener('submit', function (event) {
+           
+            const searchInput = document.getElementById('searchInput').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
 
-        // Check if the input is empty
-        if (searchInput === '') {
-    event.preventDefault(); 
-    errorMessage.style.display = 'block'; 
-} else {
-    event.preventDefault(); // Added here to stop the submission
-    window.location.href = '404.html';
-}
-    });
+           
+            if (searchInput === '') {
+                event.preventDefault();
+                errorMessage.style.display = 'block';
+            } else {
+                event.preventDefault(); 
+                window.location.href = '404.html';
+            }
+        });
     </script>
 </body>
 

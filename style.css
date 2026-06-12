@@ -4,7 +4,7 @@
        box-sizing: border-box;
        font-family: Arial, sans-serif;
    }
- 
+
 
    * {
        margin: 0;
@@ -381,7 +381,6 @@
        transform: translateX(6px);
    }
 
-   /* Scroll Animation */
 
    .reveal {
        opacity: 0;
@@ -418,7 +417,6 @@
        transition-delay: .6s;
    }
 
-   /* Tablet */
 
    @media(max-width:992px) {
 
@@ -427,7 +425,6 @@
        }
    }
 
-   /* Mobile */
 
    @media(max-width:768px) {
 
@@ -533,7 +530,6 @@
        line-height: 1.7;
    }
 
-   /* Stats */
 
    .stats-section {
        display: grid;
@@ -583,7 +579,6 @@
        font-size: 1.1rem;
    }
 
-   /* Scroll Animation */
 
    .reveal {
        opacity: 0;
@@ -596,7 +591,6 @@
        transform: translateY(0);
    }
 
-   /* Tablet */
 
    @media(max-width:992px) {
 
@@ -609,7 +603,6 @@
        }
    }
 
-   /* Mobile */
 
    @media(max-width:768px) {
 
@@ -744,7 +737,6 @@
        transform: translateY(-5px);
    }
 
-   /* Scroll Animation */
 
    .reveal {
        opacity: 0;
@@ -757,7 +749,6 @@
        transform: translateY(0);
    }
 
-   /* Tablet */
 
    @media(max-width:992px) {
 
@@ -770,7 +761,6 @@
        }
    }
 
-   /* Mobile */
 
    @media(max-width:768px) {
 
@@ -893,7 +883,6 @@
        line-height: 1.8;
    }
 
-   /* Tablet */
 
    @media(max-width:992px) {
 
@@ -906,7 +895,6 @@
        }
    }
 
-   /* Mobile */
 
    @media(max-width:768px) {
 
@@ -1035,7 +1023,6 @@
        color: #07142c;
    }
 
-   /* Tablet */
 
    @media(max-width:992px) {
 
@@ -1044,7 +1031,6 @@
        }
    }
 
-   /* Mobile */
 
    @media(max-width:768px) {
 
@@ -1162,7 +1148,6 @@
        font-size: 1.1rem;
    }
 
-   /* Tablet */
 
    @media(max-width:992px) {
 
@@ -1171,7 +1156,6 @@
        }
    }
 
-   /* Mobile */
 
    @media(max-width:768px) {
 
@@ -1456,7 +1440,6 @@
        color: #94a3b8;
    }
 
-   /* Tablet */
 
    @media(max-width:992px) {
 
@@ -1466,7 +1449,6 @@
 
    }
 
-   /* Mobile */
 
    @media(max-width:768px) {
 
